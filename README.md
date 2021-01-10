@@ -27,7 +27,11 @@ Gracias a mis estudios académicos, poseo conocimientos de gestión de proyectos
 * Por las funcionalidades implementadas - [TiendaMia](https://tiendamia.com/ar)
 
 ## Publico que apunta el sitio 👥
- _Nuestros productos los pueden utilizar un publico que sepa o este interesado en alguna rama de Informatica, gamers o simplemente para hacer un lindo regalo._
+ _Nuestros productos los pueden utilizar un publico que sepa o este interesado en alguna rama de Informatica, gamers o simplemente para hacer un lindo regalo.🎁_
+
+## Productos 🛒
+
+_En TecnoHouse tenemos una amplia variedad de productos Arduino, Modulos, Sensores, Accesorios, Servos y Motores, Led,Componentes_
 
 ## Propuesta de Branding 🚀
 
