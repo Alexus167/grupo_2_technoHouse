@@ -9,7 +9,7 @@ _Somos una empresa con más de 21 años de trayectoria, llevando novedades tecno
 
 - [Karen Elpidio](https://github.com/KarenElpidio) 👩🏾‍💻
 -_Soy una emprendedora, programadora, entusiasta de 23 años oriunda de Argentina. Disfruto creando y desarrollando proyectos. Siempre me parecieron interesantes los sistemas informáticos y los lenguajes de programación. Me estoy especializando en la carrera de Ingeniería en Informática y actualmente trabajo como programadora Freelancer.
-Me interesa continuar capacitándome y desarrollándome en el área de IT. Aspiro a poder colaborar de forma positiva en mi comunidad a través del aprovechamiento de la tecnología como eje de crecimiento_
+Me interesa continuar capacitándome y desarrollándome en el área de IT. Aspiro a poder colaborar de forma positiva en mi comunidad a través del aprovechamiento de la tecnología como eje de crecimiento._
 - [Carlos López](https://github.com/karlos2312) 👨🏽‍💻 - 
 _Soy un estudiante de programación autodidacta en busca de una empresa para desarrollar su potencial. Durante los últimos meses he estado estudiando distintas tecnologías relacionadas al desarrollo Front.End (HTML5, CSS3, Javascript, React entre otras) a través de recursos online, Siento que ha llegado el momento de poner todos lo aprendido en acción, por lo que emprendí una búsqueda laboral activa. Mi objetivo en este momento es encontrar una empresa a la cual aportar mis conocimientos, entusiasmo y flexibilidad para aprender nuevas tecnologías y formas de trabajo._
 - [Alex Méndez](https://github.com/Alexus167) 👨🏽‍💻 -
@@ -24,7 +24,10 @@ Gracias a mis estudios académicos, poseo conocimientos de gestión de proyectos
 * Por los clientes a los que apuntan - [fullh4rd](https://www.fullh4rd.com.ar/)
 * Por la estética que presentan - [technohome](https://www.technohome.com.ar/)
 * Por las funcionalidades implementadas - [MercadoLibre](https://www.mercadolibre.com.ar/)
-* Por las funcionalidades implementadas - [TiendaMia](https://tiendamia.com/ar
+* Por las funcionalidades implementadas - [TiendaMia](https://tiendamia.com/ar)
+
+## Publico que apunta el sitio 👥
+ _Nuestros productos los pueden utilizar un publico que sepa o este interesado en alguna rama de Informatica, gamers o simplemente para hacer un lindo regalo._
 
 ## Propuesta de Branding 🚀
 
