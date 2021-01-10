@@ -35,5 +35,5 @@ _En TecnoHouse tenemos una amplia variedad de productos Arduino, Modulos, Sensor
 
 ## Propuesta de Branding 🚀
 
-[BRANDING](https://github.com/Alexus167/grupo_2_technoHouse/blob/main/branding/branding.pdf)
+_Propuesta_ [BRANDING](https://github.com/Alexus167/grupo_2_technoHouse/blob/main/branding/branding.pdf)
 
