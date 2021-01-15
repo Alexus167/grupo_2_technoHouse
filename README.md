@@ -1,5 +1,5 @@
 # Proyecto Integrador 
-## ***TechnoHouse***🚀
+## ***TechnoHouse*** ![GitHub Logo](/images/logo.png)
 
 ### Integrantes
 - [Karen Elpidío](https://github.com/KarenElpidio)
