@@ -1,5 +1,6 @@
 # Proyecto Integrador 
-## ***TechnoHouse***
+## ***TechnoHouse***🚀
+
 ### Integrantes
 - [Karen Elpidío](https://github.com/KarenElpidio)
 - [Carlos López](https://github.com/karlos2312)
