@@ -12,4 +12,10 @@ Me interesa continuar capacitándome y desarrollándome en el área de IT. Aspir
 - [Carlos López](https://github.com/karlos2312)
 - [Alex Méndez](https://github.com/Alexus167)
 
-
+##  Sitios Similares  🌐
+    
+*Por los productos o servicios que ofrecen - [nubbeo](https://www.nubbeo.com.ar/)
+*Por los clientes a los que apuntan -[fullh4rd](https://www.fullh4rd.com.ar/)
+*Por la estética que presentan - [technohome] (https://www.technohome.com.ar/)
+*  Por las funcionalidades implementada - [MercadoLibre] (https://www.mercadolibre.com.ar/)
+* Por las funcionalidades implementadas - [TiendaMia] (https://tiendamia.com/ar/)
