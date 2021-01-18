@@ -26,7 +26,7 @@ Gracias a mis estudios académicos, poseo conocimientos de gestión de proyectos
 * Por las funcionalidades implementadas - [MercadoLibre](https://www.mercadolibre.com.ar/)
 * Por las funcionalidades implementadas - [TiendaMia](https://tiendamia.com/ar
 
-## PROPUESTA DE BRANDING  🚀
+## Propuesta de Branding 🚀
 
 [BRANDING](https://github.com/Alexus167/grupo_2_technoHouse/blob/main/branding/branding.pdf)
 
