@@ -24,4 +24,9 @@ Gracias a mis estudios académicos, poseo conocimientos de gestión de proyectos
 * Por los clientes a los que apuntan - [fullh4rd](https://www.fullh4rd.com.ar/)
 * Por la estética que presentan - [technohome](https://www.technohome.com.ar/)
 * Por las funcionalidades implementadas - [MercadoLibre](https://www.mercadolibre.com.ar/)
-* Por las funcionalidades implementadas - [TiendaMia](https://tiendamia.com/ar/)
+* Por las funcionalidades implementadas - [TiendaMia](https://tiendamia.com/ar
+
+## PROPUESTA DE BRANDING  🚀
+
+[BRANDING](https://github.com/Alexus167/grupo_2_technoHouse/blob/main/branding/branding.pdf)
+
