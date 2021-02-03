@@ -1,7 +1,3 @@
-const products=require('../data/productos');
-
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-
 const controller = {
 	// Root - Show all products
 	root: (req, res) => {

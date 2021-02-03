@@ -5,12 +5,6 @@ const router = express.Router();
 const mainController = require('../controller/indexController');
 
 /* GET home page. */
-router.get('/',(req, res)=>{
-    return res.render('home', {
-         title: 'Technohome',
-         mensaje: 'tenemos lo que necesitas',
-     })
- });
-router.get('/search',mainController.search)
+router.get('/', mainController.index);
 
 module.exports = router;

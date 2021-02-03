@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // ************ Controller Require ************
-const productsController = require('../controllers/productsController');
+const productsController = require('../controller/productController');
 
 router.get('/', productsController.root); /* GET - All products */
 router.get('/detail/:productId/', productsController.detail); /* GET - Product detail */
