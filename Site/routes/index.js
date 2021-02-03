@@ -1,8 +1,16 @@
 const express = require('express');
-const router = express.Router(); //traigo el metodo Router
+const router = express.Router();
 
-const indexController = require('../controller/indexController');
+/* Requiero controlador */
+const mainController = require('../controller/indexController');
 
-router.get('/',indexController.index);
+/* GET home page. */
+router.get('/',(req, res)=>{
+    return res.render('home', {
+         title: 'Technohome',
+         mensaje: 'tenemos lo que necesitas',
+     })
+ });
+router.get('/search',mainController.search)
 
 module.exports = router;
