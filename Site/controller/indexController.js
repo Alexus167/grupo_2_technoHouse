@@ -4,5 +4,16 @@ const controller = {
          title: 'asdf',
        })
     },
+
+    productAdd: (req, res) => {
+      res.render('productAdd', {
+        title: 'Administracion',
+      })
+    }
 }
+
+
+
+
+
 module.exports= controller;
