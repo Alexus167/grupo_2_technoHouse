@@ -2,9 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 /* Requiero controlador */
-const mainController = require('../controller/indexController');
+const {index, search, show} = require('../controller/indexController');
 
-/* GET home page. */
-router.get('/', mainController.index);
+/* Rutas */
+router.get('/', index);
+router.get('/show/id:', show)
 
 module.exports = router;
