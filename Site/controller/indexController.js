@@ -29,5 +29,26 @@ module.exports= {
       title: "Resultado de la búsqueda",
       autos: resultado
     })
-  }
+  },
+
+    cart: (req,res)=> {
+      res.render('cart', {
+        title: "Carrito"
+      })
+      },
+    shipping: (req,res)=> {
+      res.render('shipping', {
+          title: "envio"
+      })
+    },
+    remove: (req,res)=> {
+      res.render('remove',{
+          title: "retiro de producto"
+      })
+    },
+    productDetails: (req,res)=> {
+      res.render('productDetails', {
+        title: "Informacion del producto"
+      })
+    }  
 };
