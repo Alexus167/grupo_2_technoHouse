@@ -5,54 +5,71 @@
   background-color: #dddddd;
 }
 
-/* Carrito */
+/* Footer */
 
-div.row.col{
+.footer {
+  background-color: #fff;
+  padding: 10px 10px 0 10px;
+ 
+}
+
+.footer .footer-width {
+   max-width: 1140px;
+  margin: 0 auto;
+}
+
+.footer article {
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+/* Carrito  header y footer montserrat  body*/
+
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+header nav.navbar-toggler.burger {
+  background-color: var(--color-azul);
+  color: #dddddd;
+}
+
+header nav ul {
+  display: flex;
+  flex-wrap: wrap;
   flex-direction: row;
-  align-items: baseline;
+  margin-top: 30px;
 }
 
-header.cart-header div div.row col{
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  
-}
-header nav.navbar.navbar-light{
-  display: flex;
-  height: 30%;
-  width: 30%;
-  margin: none;
-  padding: none;
-  align-items: right;
-}
-header nav img{
-  height: 100%;
-  width: 100%;
-  align-items: right;
-  padding: none;
+header nav ul li a {
+  color: #000;
+  text-decoration: none;
+  transition: color .3s ease;
 }
 
-nav.navbar{
-  display: contents;
+header img {
   height: 50%;
-  width: 69%;
-  align-items: flex-end;
-  
-}
-
-header img{
-  display: flex;
-align-items: flex-end;
+  width: 40%;
 }
 /* botones */
-div.row.col-12{
+div.container-botones{
   display: flex;
-  align-items: center;
-
+  align-items: left;
+  padding-left: 5%;
+}.mas-productos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
+
+/* Mas Productos */
+
+
 
 /* envio */
 
