@@ -9,6 +9,12 @@ const controller = {
       res.render('productAdd', {
         title: 'Administracion',
       })
+    }, 
+
+    formularioPago: (req, res) => {
+      res.render('formularioPago', {
+        title: 'Formulario', 
+      })
     }
 }
 
