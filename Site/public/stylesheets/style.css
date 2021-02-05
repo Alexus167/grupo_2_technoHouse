@@ -1,8 +1,55 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  background-color: #dddddd
 }
 
-a {
-  color: #00B7FF;
+/* Carrito */
+
+header.cart-header div div.row col{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  
 }
+header nav.navbar.navbar-light{
+  height: 30%;
+  width: 30%;
+  margin: none;
+  padding: none;
+  align-items: right;
+}
+header nav img{
+  height: 100%;
+  width: 100%;
+  align-items: right;
+  padding: none;
+}
+button.navbar-toggler.burger{
+  display: flex;
+  align-items: left;
+}
+
+header nav.navbar{
+  display: flex;
+align-items: flex-end;
+}
+
+/* envio */
+
+body section.recibir{
+padding: 0px 12px;
+}
+
+/* body.recibir{
+
+} */
+
+section.recibir iframe{
+  width: 80%;
+  height: 80%;
+}
+
+
