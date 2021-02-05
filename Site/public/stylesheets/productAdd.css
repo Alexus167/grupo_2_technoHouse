@@ -264,5 +264,36 @@ header form {
     #form {
         margin-top: 19px;
     }
+
+    .boxContainer {
+        border-radius: 0%;
+    }
+
+    #agregarFoto {
+        text-align: center;
+    }
+
+    .boxContainer h4 {
+    margin-bottom: 36px;
+    color: black;
+    margin-top: 14px;
+    text-align: center;
+    }
+
+    .disFle {
+        margin-bottom: 8px;
+    }
+
+    #precioFinal {
+        margin-top: 10px;
+    }
+
+    #botones {
+        text-align: center;
+    }
+
+    .cancelar {
+        margin-top: 15px;
+    }
 }
   
