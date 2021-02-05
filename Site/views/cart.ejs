@@ -123,7 +123,120 @@
                     </div>
     </section>
 
+ <section class="cart">
+            <div class="container boxContainer">
+             <div class="row">
+                <div class="col-md-6">
+                    <div class="row">
+                    <div class="col-md-12">
+                        <div class="img">
+                        <img src="images/2.png" alt="">
+                    </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                    <div class="col-md-12 dispFl">
+                    <div class="img1">
+                            <img src="images/1.png" alt="">
+                      </div>
+                        
+                        <div class="img2">
+                            <img src="images/1.png" alt="">
+                      </div>
+                        
+                        <div class="img3">
+                            <img src="images/1.png" alt="">
+                      </div>
+                            <div class="img4">
+                            <img src="images/1.png" alt="">
+                      </div>
+                    </div>   
+                    </div>        
+                        <div class="row">
+                            <div class="col-md-12" id="agregarFoto">
+                            <button type="submit" class="agregarF"> AGREGAR FOTOS </button>
+                                </div>
+                        </div>
+                      </div>
+                
+        
+                      
 
+                       
+                    <div class="col-md-6">
+                         <div class="form1">
+                            <h4>INCLUYE ALGUNOS DETALLES</h4>
+                            <form action="/products/create?_method=POST" method="POST">
+                                <div class="titulo-producto">
+                                    <input type="text" class="prod1" id="name" name="name" placeholder="Nombre del Producto">
+                                </div>
+                                
+                                <div class="select-category">
+                                 
+                                    <select name="category" id="category">
+                                        <option selected disabled>Elegir Categoria</option> <!--Agregando 'selected' & 'disabled', en la etiqueta '<option' deshabilitamos la opción de que el usuario la seleccione -->
+                                        <option value="arduino">Arduino</option>
+                                        <option value="modulos">Modulos</option>
+                                        <option value="sensores">Sensores</option>
+                                        <option value="accesorios">Accesorios</option>
+                                        <option value="servos y motores">Servos y Motores</option>
+                                        <option value="led">Led</option>
+                                        <option value="compontes">Servos y Motores</option>
+                                    </select> 
+                                </div>
+
+                                <div class="desc-op">
+                                    <textarea placeholder="Descripción (opcional)"></textarea>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="disFle">
+                                            <h5 class="stock">STOCK</h5>
+                                            <input type="number">
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input placeholder="Precio por unidad $" type="text">
+                                </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <select name="sub-category" id="sub-category">
+                                                <option value="null">Sub categoría</option>
+                                                <option value="oferta">Ofertas</option>
+                                                <option value="nuevo">Nuevos</option>
+                                                <option value="promo">Promo</option>
+                                            </select>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input placeholder="Precio final $" type="text" id="precioFinal">
+                                </div>
+                                </div>
+
+
+                                <div class="row" id="botones">
+                                    <div class="col-md-6">
+                                        <div>
+                                            <button type="submit" class="agregar"> AGREGAR </button>
+                                        </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="cancelar"> CANCELAR </button>                              
+                                  </div>
+                                </div>
+                                
+
+                            </form>
+                        </div>
+                    </div>                   
+                </div>
+            </div>
+        </section>
 
 
 
@@ -138,6 +251,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
         integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
         crossorigin="anonymous"></script>
-</body>
+
+
+       
+
+
+    </body>
 
 </html>
