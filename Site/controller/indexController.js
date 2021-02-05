@@ -50,5 +50,16 @@ module.exports= {
       res.render('productDetails', {
         title: "Informacion del producto"
       })
+    },
+    productAdd: (req, res) => {
+      res.render('productAdd', {
+        title: 'Administracion',
+      })
+    }, 
+
+    formularioPago: (req, res) => {
+      res.render('formularioPago', {
+        title: 'Formulario', 
+      })
     }  
 };
