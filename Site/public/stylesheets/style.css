@@ -2,10 +2,16 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #dddddd
+  background-color: #dddddd;
 }
 
 /* Carrito */
+
+div.row.col{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
 
 header.cart-header div div.row col{
   display: flex;
@@ -15,6 +21,7 @@ header.cart-header div div.row col{
   
 }
 header nav.navbar.navbar-light{
+  display: flex;
   height: 30%;
   width: 30%;
   margin: none;
@@ -27,14 +34,24 @@ header nav img{
   align-items: right;
   padding: none;
 }
-button.navbar-toggler.burger{
-  display: flex;
-  align-items: left;
+
+nav.navbar{
+  display: contents;
+  height: 50%;
+  width: 69%;
+  align-items: flex-end;
+  
 }
 
-header nav.navbar{
+header img{
   display: flex;
 align-items: flex-end;
+}
+/* botones */
+div.row.col-12{
+  display: flex;
+  align-items: center;
+
 }
 
 /* envio */
@@ -51,5 +68,6 @@ section.recibir iframe{
   width: 80%;
   height: 80%;
 }
+
 
 
