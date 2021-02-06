@@ -13,7 +13,7 @@ router.get('/shipping', shipping);
 router.get('/productDetails', productDetails);
 router.get('/remove', remove);
 router.get('/productAdd', productAdd);
-router.getComputedStyle('/formularioPago', formularioPago);
+router.get('/formularioPago', formularioPago);
 
 
 module.exports = router;
