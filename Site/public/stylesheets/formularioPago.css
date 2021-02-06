@@ -130,8 +130,57 @@ header form {
 
 @media (max-width: 460px) { 
     .logoA {
-    text-align: center !important;
+      margin-top: 14px;
+      text-align: center;
+
+}
+
+  .logo {
+    width: 74%;
+}
+
+.bot1 {
+  margin-bottom: -25px;
+}
+  #buscador {
+    margin-top: 12px;
+    margin-left: 16px;
+
+}
+    .bg-light {
+      padding-bottom: 41px;
     }
+
+    .botones-nav {  
+    margin-left: 38px;
+    }
+    #opciones {
+      margin-top: 18px;
+    padding-right: 11px;
+    padding-left: 7px;
+    }
+
+    .continuar {
+        
+    padding: 13px 8px;
+    margin-top: 25px;
+    width: 50%;
+    text-align: center;
+    margin-left: 45px;
+    }
+
+    .titulo {
+      margin-top: 35px;
+      margin-bottom: 20px;
+      font-size: 21px;
+  
+    }
+
+    #derecha {
+      width: 64%;
+    margin-top: 26px;
+    margin-left: 0%;
+}
     
 
 }
