@@ -10,10 +10,10 @@ router.get('/', index);
 router.get('/show/id:', show);
 router.get('/cart', cart);
 router.get('/shipping', shipping);
-router.get('/productDetails', productDetails);
+router.get('/productDetails/:id', productDetails);
 router.get('/remove', remove);
 router.get('/productAdd', productAdd);
-router.getComputedStyle('/formularioPago', formularioPago);
+router.get('/formularioPago', formularioPago);
 
 
 module.exports = router;
