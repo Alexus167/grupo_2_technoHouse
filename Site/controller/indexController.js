@@ -15,6 +15,12 @@ const controller = {
       res.render('formularioPago', {
         title: 'Formulario', 
       })
+    },
+
+    iniciar: (req, res) => {
+      res.render('iniciar', {
+        title:'iniciar',
+      })
     }
 }
 
