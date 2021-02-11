@@ -1,3 +1,4 @@
+
 const {getProducts}=require('../data/productos')
 
 const productos=getProducts()
@@ -51,6 +52,7 @@ module.exports= {
         title: "Informacion del producto"
       })
     },
+  
     productAdd: (req, res) => {
       res.render('productAdd', {
         title: 'Administracion',
@@ -61,5 +63,3 @@ module.exports= {
       res.render('formularioPago', {
         title: 'Formulario', 
       })
-    }  
-};
