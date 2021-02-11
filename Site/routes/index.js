@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 /* Requiero controlador */
-const{ index, productAdd, formularioPago, iniciar} = require('../controller/indexController');
-const {index, search, show, cart, shipping, productDetails, remove, productAdd, formularioPago} = require('../controller/indexController');
+const {index, search, show, cart, shipping, productDetails, remove, productAdd, formularioPago, iniciar} = require('../controller/indexController');
 
 
 /* Rutas */
