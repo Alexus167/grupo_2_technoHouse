@@ -1,0 +1,19 @@
+/* Footer */
+
+.footer {
+    background-color: #fff;
+    padding: 10px 10px 0 10px;
+   
+  }
+  
+  .footer .footer-width {
+     max-width: 1140px;
+    margin: 0 auto;
+  }
+  
+  .footer article {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    text-align: center;
+  }

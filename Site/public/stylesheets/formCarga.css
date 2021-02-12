@@ -1,0 +1,99 @@
+/* FORMULARIO DE CARGA */
+.form-carga {
+    text-align: center;
+  
+  }
+  
+  .form-carga form>div {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 30px auto;
+    font-size: 15px;
+  }
+  
+  .form-carga h1 {
+    font-size: 1.5rem;
+    text-align: left;
+    border-bottom: 4px solid #744BFF;
+  }
+  
+  .form-carga form select {
+    margin: 20px 0;
+    font-size: 15px;
+    outline: none;
+  }
+  
+  .form-carga form .select-category select option {
+    background-color: #a387fe81;
+  }
+  
+  .form-carga form .cargar-imagen input {
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+  }
+  
+  .form-carga form button {
+    font-size: 15px;
+  }
+  
+  /* BOxImagenes */
+  .boxContainer {
+    border: thin solid black;
+    padding: 30px;
+    margin-top: 68px;
+    margin-bottom: 50px;
+    background-color: #cdd0cb;
+    border-radius: 40px;
+  
+  }
+  
+  select {
+    cursor: pointer; /*Manito de clic*/
+    background-color: white;
+  }
+  
+  .disFle {
+    display: flex;
+  }
+  
+  * {
+    outline: none !important;
+  }
+  
+  .boxContainer input[type="number"] {
+    width: 60px;
+    padding-left: 10px;
+    height: 30px;
+    margin-left: 10px;
+    cursor: pointer;
+    background-color: #DDDDDD;
+    
+  }
+  
+  
+  .boxContainer textarea {
+    width: 100%;
+    height: 100px;
+    margin-top: 20px;
+    border: 2px solid black;
+    border-radius: 3PX;
+    margin-bottom: 20px;
+    background-color: #DDDDDD;
+  }
+  
+  .boxContainer input[type="text"] {
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #DDDDDD;
+  }
+  
+  .boxContainer h4 {
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  .stock {
+    color: black;
+  }
