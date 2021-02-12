@@ -11,20 +11,20 @@ const controller = {
 	detail: (req, res) => {
 		const id=req.params.id;
 
-		const product=products.find(product=>{
+		/*const product=products.find(product=>{
 			return product.id===+id
-		});
+		});*/
 
-		res.render('detail',{
-			product,
-			toThousand,
+		res.render('productDetails',{
+			/*product,
+			toThousand,*/
 			title:'detalles de producto',
 		});
 		},
 
 	// Create - Form to create
 	create: (req, res) => {
-		// Do the magic
+		res.render('productAdd');
 	},
 	
 	// Create -  Method to store
