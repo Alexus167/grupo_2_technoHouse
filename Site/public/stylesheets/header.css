@@ -5,7 +5,7 @@ header .header-container {
   }
   
   .bg-light {
-    background-color: #30475e!important;
+    background-image: linear-gradient(to bottom right, #222831, #30475e);
     padding-bottom: 20px;
   
   }
@@ -18,7 +18,7 @@ header .header-container {
   
   
   header .row {
-    background-color: #30475e; 
+    background-image: linear-gradient(to bottom right, #222831, #30475e);
     padding-bottom: 10px;
   }
   

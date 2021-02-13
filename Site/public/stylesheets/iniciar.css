@@ -6,7 +6,7 @@ body{
 /*HEADER*/
 
 .header-inicia nav {
-    background-color: #30475e!important;
+  background-image: linear-gradient(to bottom right, #222831, #30475e);
     padding-bottom: 20px;
 
 }

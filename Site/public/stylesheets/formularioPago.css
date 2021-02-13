@@ -8,7 +8,7 @@ header .header-container {
 }
 
 .bg-light {
-    background-color: #30475e!important;
+  background-image: linear-gradient(to bottom right, #222831, #30475e);
     padding-bottom: 20px;
 
 }
@@ -117,12 +117,12 @@ header form {
  
 #derecha {
 
-   width: 45%;
-    text-align: right;
-    margin-left: 685px;
-    margin-top: 67px;
-
+  width: 45%;
+  text-align: right;
+  margin-left: 685px;
+  margin-bottom: -38px;
 }
+
 
 
 /* RESPONSIVE */ 
@@ -178,8 +178,8 @@ header form {
 
     #derecha {
       width: 64%;
-    margin-top: 26px;
-    margin-left: 0%;
+      margin-left: 39%;
+      margin-bottom: -14px;
 }
     
 
