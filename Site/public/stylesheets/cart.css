@@ -1,0 +1,11 @@
+.container-botones{
+    text-align: end;
+    align-content: stretch;
+    align-self:flex-end;
+}
+.cards {
+    display: flex;
+}
+.cards img{
+    width: 80%;
+}

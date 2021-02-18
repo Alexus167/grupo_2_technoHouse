@@ -10,37 +10,11 @@
 
 @import 'home.css';
 
+@import 'shipping.css';
+
+@import 'cart.css';
 /* Carrito  header y footer montserrat  body*/
 
-/* botones */
-div.container-botones{
-  display: flex;
-  align-items: left;
-  padding-left: 5%;
-}.mas-productos {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-/* Mas Productos */
-
-
-
-/* envio */
-
-body section.recibir{
-padding: 0px 12px;
-}
-
-/* body.recibir{
-
-} */
-
-section.recibir iframe{
-  width: 80%;
-  height: 80%;
-}
 
 
 /*RESPONSIVE */

@@ -42,7 +42,7 @@
 
                 <tr>
                     <td> Display Led </td>
-                    <td> <img src="images/display_led.jpg" alt="Product Pic" height="40px" width="40px" /></td>
+                    <td> <img src="https://www.cromptonlamps.com/imagecache/dd325c1c-f550-42ff-ae1a-a87a00ed8e8b/3415---LED-G9-25W-2700K_1000x1000.jpg" alt="Product Pic" height="40px" width="40px" /></td>
                     <td>$ 20.00</td>
                     <td>display led de 2.5w</td>
 
@@ -53,7 +53,7 @@
 
                 <tr>
                     <td> Led COB </td>
-                    <td> <img src="images/Led_cob_50w.webp" alt="Product Pic" height="40px" width="40px" /></td>
+                    <td> <img src="https://http2.mlstatic.com/D_NQ_NP_713360-MLA31050388703_062019-O.webp" alt="Product Pic" height="40px" width="40px" /></td>
                     <td>$ 20.00</td>
                     <td>led COB de 50w</td>
 
@@ -72,171 +72,87 @@
 
 
     <div class="container-botones">
+
         <div class="row col-12">
-            <div class="col-6">
-                <a href="/cart" class="btn btn-info btn-block">ENVIAR A GUARDADOS</a>
+            <div class="boton1">
+                <a href="#" class="btn btn-primary">Agregar a Guardados</a>
             </div>
-            <div class="col-6">
+            <div class="boton2">
                 <button href="/payform" class="btn btn-success btn-block" id="procesar-compra">COMPRAR
                     AHORA</button>
             </div>
         </div>
-        </form>
 
     </div>
 
 
-    </div>
-    </div>
-    </div>
-    </main>
 
-
-
-    <section class="mas-productos">
+    <section class="container">
+        <div class="row cards">
+          
+            <div class="col-12"> 
         <h2>PENSADO PARA VOS</h2>
-                    <div class="card" style="width: 18rem; align-items: center;">
-                        <img src="https://ventaderepuestos.es/21325-thickbox_default/modulo-electronico-00646759.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">MÓDULO ELECTRÓNICO 00646759</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="btn btn-primary">Agregar y comprar ahora</a>
-                        </div>
-                        <img src="https://leantec.es/wp-content/uploads/2018/02/p_2_2_7_7_2277-Modulo-led-RGB-5mm-tricolor-Arduino-electronica-catodo-comun-KY-016.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Led RGB 5mm</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="/cart" class="btn btn-primary">Agregar y comprar ahora</a>
-                        </div>
-                        <img src="https://assets.liveracemedia.com/media/images/10621_Inline_Photo_0AteMLY.max-1000x1000.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Servo Hitec</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="/cart" class="btn btn-primary">Agregar y comprar ahora</a>
-                        </div>
-                    </div>
-    </section>
-
- <section class="cart">
-            <div class="container boxContainer">
-             <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                    <div class="col-md-12">
-                        <div class="img">
-                        <img src="images/2.png" alt="">
-                    </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                    <div class="col-md-12 dispFl">
-                    <div class="img1">
-                            <img src="images/1.png" alt="">
-                      </div>
-                        
-                        <div class="img2">
-                            <img src="images/1.png" alt="">
-                      </div>
-                        
-                        <div class="img3">
-                            <img src="images/1.png" alt="">
-                      </div>
-                            <div class="img4">
-                            <img src="images/1.png" alt="">
-                      </div>
-                    </div>   
-                    </div>        
-                        <div class="row">
-                            <div class="col-md-12" id="agregarFoto">
-                            <button type="submit" class="agregarF"> AGREGAR FOTOS </button>
-                                </div>
-                        </div>
-                      </div>
-                
-        
-                      
-
-                       
-                    <div class="col-md-6">
-                         <div class="form1">
-                            <h4>INCLUYE ALGUNOS DETALLES</h4>
-                            <form action="/products/create?_method=POST" method="POST">
-                                <div class="titulo-producto">
-                                    <input type="text" class="prod1" id="name" name="name" placeholder="Nombre del Producto">
-                                </div>
-                                
-                                <div class="select-category">
-                                 
-                                    <select name="category" id="category">
-                                        <option selected disabled>Elegir Categoria</option> <!--Agregando 'selected' & 'disabled', en la etiqueta '<option' deshabilitamos la opción de que el usuario la seleccione -->
-                                        <option value="arduino">Arduino</option>
-                                        <option value="modulos">Modulos</option>
-                                        <option value="sensores">Sensores</option>
-                                        <option value="accesorios">Accesorios</option>
-                                        <option value="servos y motores">Servos y Motores</option>
-                                        <option value="led">Led</option>
-                                        <option value="compontes">Servos y Motores</option>
-                                    </select> 
-                                </div>
-
-                                <div class="desc-op">
-                                    <textarea placeholder="Descripción (opcional)"></textarea>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="disFle">
-                                            <h5 class="stock">STOCK</h5>
-                                            <input type="number">
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <input placeholder="Precio por unidad $" type="text">
-                                </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div>
-                                            <select name="sub-category" id="sub-category">
-                                                <option value="null">Sub categoría</option>
-                                                <option value="oferta">Ofertas</option>
-                                                <option value="nuevo">Nuevos</option>
-                                                <option value="promo">Promo</option>
-                                            </select>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <input placeholder="Precio final $" type="text" id="precioFinal">
-                                </div>
-                                </div>
-
-
-                                <div class="row" id="botones">
-                                    <div class="col-md-6">
-                                        <div>
-                                            <button type="submit" class="agregar"> AGREGAR </button>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" class="cancelar"> CANCELAR </button>                              
-                                  </div>
-                                </div>
-                                
-
-                            </form>
-                        </div>
-                    </div>                   
-                </div>
             </div>
-        </section>
+
+
+                         <div class="col-12 col-md-6 col-lg-3">
+                            
+                                <div class="card" style="width: 18rem;">
+                                    <img src="https://ventaderepuestos.es/21325-thickbox_default/modulo-electronico-00646759.jpg" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                    <h5 class="card-title">MÓDULO ELECTRÓNICO 00646759</h5>
+                                    <h4 class="card-price">$150.00</h4>
+                                    <p class="card-text">Some quick example text to build on the card title and make </p>
+                                    <a href="#" class="btn btn-primary">Agregar y comprar ahora</a>
+                                    </div>
+                              </div>
+                            
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-3">
+                            
+                                <div class="card" style="width: 18rem;">
+                                    <img src="https://http2.mlstatic.com/D_NQ_NP_676893-MLA31023657616_062019-O.webp" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                    <h5 class="card-title">TecnoliveUSA Led 10mm Alta Luminosidad</h5>
+                                    <h4 class="card-price">$15.00</h4>
+                                    <p class="card-text">- Voltaje: 3 - 3,2 V - Amperaje: 20 Ma</p>
+                                    <a href="#" class="btn btn-primary">Agregar y comprar ahora</a>
+                                    </div>
+                                </div>
+                                
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-3">
+                            
+                                <div class="card" style="width: 18rem;">
+                                    <img src="https://http2.mlstatic.com/D_NQ_NP_639521-MLA42702964243_072020-O.webp" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                    <h5 class="card-title">Servo Mg995 TOWER PRO</h5>
+                                    <h4 class="card-price">$60.00</h4>
+                                    <p class="card-text">Servo Tower Pro de 360 grados</p>
+                                    <a href="#" class="btn btn-primary">Agregar y comprar ahora</a>
+                                    </div>
+                                </div>
+                           
+                        </div>
+
+                        <div class="card1 col-12 col-md-6 col-lg-3">
+                            
+                                <div class="card" style="width: 18rem;">
+                                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_735921-MLA27478460893_062018-F.webp" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                    <h5 class="card-title">Arduino NANO</h5>
+                                    <h4 class="card-price">$320.00</h4>
+                                    <p class="card-text">Arduino tipo NANO modelo Atmega328 Basado En Ch340</p>
+                                    <a href="#" class="btn btn-primary">Agregar y comprar ahora</a>
+                                    </div>
+                                </div>
+                            
+                        </div>
+                
+        </div>        
+    </section>
 
 
 

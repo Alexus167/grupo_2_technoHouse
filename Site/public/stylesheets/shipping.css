@@ -1,0 +1,159 @@
+body{
+    background: #DDDDDD;
+  }
+  
+  
+  /*HEADER*/
+  
+  .header-shipping nav {
+    background-image: linear-gradient(to bottom right, #222831, #30475e);
+      padding-bottom: 20px;
+  
+  }
+  
+  .header-shipping img {
+    width: 200px;
+  
+  }
+  
+  .form-control {
+      padding: 0.375rem 15.75rem;
+      padding: 0.375rem 15.75rem;
+      border-radius: 28px;
+      font-size: small;
+  }
+  
+  
+    /*FORMULARIO DE ENVIO*/
+  
+    .shipping{
+      width: 100%;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  
+     
+    .envio-container{
+      flex-direction: column;
+      display: flex;
+      background: #fff;
+      box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+    }
+     
+    .envio, .retiro{
+      flex: 1;
+    }
+     
+    .envio{
+      padding: 40px;
+      position: relative;
+    }
+     
+    .envio h2{
+      color: #797979;
+      margin-bottom: 30px;
+    }
+     
+    .envio input{
+      width: 100%;
+      padding: 5px;
+      font-size: 16px;
+      margin-bottom: 25px;
+      border-top-style: none;
+      border-left-style: none;
+      border-right-style: none;
+      border-bottom: 1px solid #a8a8a8;
+      color: #333;
+    }
+     
+    .envio input:active,
+    .envio input:focus{
+      outline: none;
+    }
+     
+    .envio .submit {
+      padding: 10px;
+      background: #30475e;
+      color: #fff;
+      font-size: 12px;
+      box-shadow: 0 0 3px 0 rgb(0 0 0 / 20%);
+      cursor: pointer;
+  
+    }
+     
+    .envio::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 50%;
+      right: -13px;
+      padding: 10px;
+      text-align: center;
+      font-size: 19px;
+      background: #f1f1f1;
+      border-radius: 50%;
+      transform: translateY(-50%);
+      box-shadow: -1px 1px 3px 1px rgb(0 0 0 / 20%);
+      color: #7c7c7c;
+  }
+     
+  .retiro {
+    background-image: linear-gradient(to bottom right, #222831, #30475e);
+    padding: 40px;
+  }
+     
+    .retiro h2{
+      color: #fff;
+      margin-bottom: 45px;
+    }
+     
+    .retiro button i{
+      position: absolute;
+      top: 12px; 
+      left: 12px;
+    }
+     
+    .retiro button{
+      width: 100%;
+      margin: 15px 0px;
+      padding: 10px;
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, .2);
+      cursor: pointer;
+      position: relative;
+    }
+     
+  
+    .text1{
+    font-size: 21px;
+    text-align: center;
+  }
+  
+  .retiro {
+        font-size: 23px;
+  }
+  
+  div.retiro-info{
+      color: #fff;
+  }
+  
+  
+   /*RESPONSIVE*/
+  
+   @media(min-width:768px) {
+  
+    .retiro-container{
+    
+      flex-direction: row;
+      margin: 30px 0;
+    }
+   }
+  
+   @media (min-width:1024px){
+    .retiro-container{
+    
+     width:640px;
+    }
+   }
