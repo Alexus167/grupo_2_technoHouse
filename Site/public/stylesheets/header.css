@@ -9,6 +9,10 @@ header .header-container {
     padding-bottom: 20px;
   
   }
+
+  .box-logo {
+    text-align: center;
+  }
   
   .logo {
     vertical-align: middle;
@@ -37,7 +41,8 @@ header .header-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-top: 70px;
+    margin: 20px 0;
+    width: 90%;
   }
   header form input {
     background-color: none;
@@ -55,20 +60,23 @@ header .header-container {
   }
   
   .botones-nav {
-    list-style: none;
-    margin-bottom: 2px;
-    margin-top: 10px;
-    margin-left: 84px;
+    display: flex;
+    justify-content:space-around ;
+    align-items: center;
   }
   
-  .bot1 {
-    margin-bottom: 5px;
-    padding-right: 38px;
+  .form-nav  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
-  .bot2{
-    padding-right: 28px;
+
+  @media(min-width:768px){
+   
   }
-  .bot3{
-    margin-top: 5px;
+
+  @media(min-width:1024px){
+
   }
+  
