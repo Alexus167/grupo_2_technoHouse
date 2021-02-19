@@ -4,6 +4,9 @@
     align-self:flex-end;
 }
 .cards {
+    display: flex; 
+}
+.card{
     display: flex;
 }
 .cards img{
