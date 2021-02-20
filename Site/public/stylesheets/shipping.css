@@ -1,35 +1,19 @@
 body{
+  display: flex;
+  flex-direction: column;
     background: #DDDDDD;
+    width: 100%;
   }
   
-  
-  /*HEADER*/
-  
-  .header-shipping nav {
-    background-image: linear-gradient(to bottom right, #222831, #30475e);
-      padding-bottom: 20px;
-  
-  }
-  
-  .header-shipping img {
-    width: 200px;
-  
-  }
-  
-  .form-control {
-      padding: 0.375rem 15.75rem;
-      padding: 0.375rem 15.75rem;
-      border-radius: 28px;
-      font-size: small;
-  }
+
   
   
     /*FORMULARIO DE ENVIO*/
   
     .shipping{
-      width: 100%;
-      padding: 10px;
       display: flex;
+      width: 100%;
+    /*   padding: 10px; */
       justify-content: center;
       align-items: center;
     }
@@ -40,9 +24,10 @@ body{
       display: flex;
       background: #fff;
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .2);
+      max-width: 414px;
     }
      
-    .envio, .retiro{
+    .div.retiro.retiro{
       flex: 1;
     }
      
@@ -102,20 +87,16 @@ body{
      
   .retiro {
     background-image: linear-gradient(to bottom right, #222831, #30475e);
-    padding: 40px;
+  padding: 40px;
   }
      
     .retiro h2{
       color: #fff;
-      margin-bottom: 45px;
+    margin-bottom: 45px;  
+    font-size: 23px;
     }
      
-    .retiro button i{
-      position: absolute;
-      top: 12px; 
-      left: 12px;
-    }
-     
+   
     .retiro button{
       width: 100%;
       margin: 15px 0px;
@@ -131,12 +112,15 @@ body{
     text-align: center;
   }
   
-  .retiro {
-        font-size: 23px;
-  }
-  
+ 
   div.retiro-info{
       color: #fff;
+  }
+
+  .lretiro{
+    font-size: 17px;
+    color: #30475e;
+    text-align: center;
   }
   
   
@@ -144,16 +128,19 @@ body{
   
    @media(min-width:768px) {
   
-    .retiro-container{
+    .envio-container{
     
-      flex-direction: row;
       margin: 30px 0;
+      max-width: 768px;
     }
    }
   
    @media (min-width:1024px){
-    .retiro-container{
-    
-     width:640px;
+    .envio-container{
+          flex-direction: row;
+           width:100%;
+    }
+    .lretiro{
+      display: none;
     }
    }

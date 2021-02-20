@@ -1,7 +1,10 @@
+
 .container-botones{
-    text-align: end;
+    display: flex;
+    justify-content: space-around;
     align-content: stretch;
-    align-self:flex-end;
+    align-items: flex-end;
+    text-align: end;
 }
 .cards {
     display: flex; 
@@ -13,14 +16,14 @@
     width: 80%;
 }
 
-.boton1{ 
-    display: flex;
-    justify-content: center;
+
+@media(min-width:768px){
+    .container-botones{
+        display: flex;
+        justify-content:space-around ;
+        align-items: flex-end;
 }
 
-.boton2 {
-    display: flex;
-    justify-content: center;
-    margin-right: 2px;
-    margin-top: 9px;
+@media(min-width:1024px){
+
 }
