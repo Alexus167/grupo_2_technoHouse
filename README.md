@@ -42,3 +42,5 @@ _Propuesta_ [Branding](https://github.com/Alexus167/grupo_2_technoHouse/blob/mai
 _Link de_ [Trello](https://trello.com/b/LerPsv3D/grupo-2-technohouse)
 
 _Link de_ [GitHub](https://github.com/Alexus167/grupo_2_technoHouse)
+
+
