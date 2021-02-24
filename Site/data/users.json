@@ -1,19 +1,25 @@
 [{
     "id": 1,
-    "first_name": "Jonell",
-    "last_name": "Kment",
-    "email": "jkment0@google.de",
-    "gender": "Genderqueer"
+    "first_name": "Stormi",
+    "last_name": "Cage",
+    "email": "scage0@macromedia.com",
+    "gender": "Genderqueer",
+    "avatar": "https://robohash.org/distinctioquiaomnis.png?size=50x50&set=set1",
+    "username": "scage0"
   }, {
     "id": 2,
-    "first_name": "Elisa",
-    "last_name": "Arnoult",
-    "email": "earnoult1@sciencedirect.com",
-    "gender": "Bigender"
+    "first_name": "Flore",
+    "last_name": "Morter",
+    "email": "fmorter1@admin.ch",
+    "gender": "Non-binary",
+    "avatar": "https://robohash.org/eosnonblanditiis.bmp?size=50x50&set=set1",
+    "username": "fmorter1"
   }, {
     "id": 3,
-    "first_name": "Joli",
-    "last_name": "Cadamy",
-    "email": "jcadamy2@qq.com",
-    "gender": "Genderfluid"
+    "first_name": "Herman",
+    "last_name": "Bartoszinski",
+    "email": "hbartoszinski2@gmpg.org",
+    "gender": "Non-binary",
+    "avatar": "https://robohash.org/temporalaborumqui.bmp?size=50x50&set=set1",
+    "username": "hbartoszinski2"
   }]

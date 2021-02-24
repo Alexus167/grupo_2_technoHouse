@@ -21,9 +21,9 @@
 
 
       <div class="container" >
-        <p>Nombre: <input type="text" name="name" minlength="6"></p>
+        <p>Nombre: <input type="text" name="first_name" minlength="6"></p>
         <br>
-        <p>Apellido: <input type="text" name="lastName" minlength="6"></p>
+        <p>Apellido: <input type="text" name="last_name" minlength="6"></p>
         <br>
         <p>Usuario: <input type="text" name="username" minlength="6"></p>
         <br>
@@ -36,10 +36,11 @@
         <p>Fecha de nacimiento: <input type="date" name="bornDate"></p>
         <br>
         <p>Sexo:
-            <input type="radio" name="gender" value="h" required> Hombre
-            <input type="radio" name="gender" value="m"> Mujer
+            <input type="radio" name="gender" value="male" required> Hombre
+            <input type="radio" name="gender" value="female"> Mujer
           </p>
         <br>
+        <p>Imagen de perfil<input type="file" placeholder="selecciona tu foto de perfil" name="avatar"></p> 
         <div class="d-grid gap-2">
             <button class="btn btn-primary" type="button">Registrarse</button>
             <button class="btn btn-light" type="button">Cancelar</button>
