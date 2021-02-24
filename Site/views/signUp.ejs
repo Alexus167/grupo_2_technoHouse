@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <%- include('partials/head') %>
+    <title>Registrate</title>
 </head>
 <body>
+
+  <%- include('partials/header') %>
+
     <h2>Registro</h2>
     <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn btn-primary" type="button">Registrarse con Facebook</button>
@@ -19,31 +20,33 @@
       <h6>_____________________________OR__________________________________________</h6>
 
 
-      <div class="container" >8
-        <p>Nombre: <input type="text" name="password" minlength="6"></p>
+      <div class="container" >
+        <p>Nombre: <input type="text" name="first_name" minlength="6"></p>
         <br>
-        <p>Apellido: <input type="text" name="password" minlength="6"></p>
+        <p>Apellido: <input type="text" name="last_name" minlength="6"></p>
         <br>
-        <p>Usuario: <input type="text" name="password" minlength="6"></p>
+        <p>Usuario: <input type="text" name="username" minlength="6"></p>
         <br>
-        <p>E-mail: <input type="mail" name="password" minlength="6"></p>
+        <p>E-mail: <input type="mail" name="mail" minlength="6"></p>
         <br>
         <p>Contraseña: <input type="password" name="password" minlength="6"></p>
         <br>
         <p>Repetir contraseña: <input type="password" name="password" minlength="6"></p>
         <br>
-        <p>Fecha de nacimiento: <input type="date" name="fechaesperada"></p>
+        <p>Fecha de nacimiento: <input type="date" name="bornDate"></p>
         <br>
         <p>Sexo:
-            <input type="radio" name="hm" value="h" required> Hombre
-            <input type="radio" name="hm" value="m"> Mujer
+            <input type="radio" name="gender" value="male" required> Hombre
+            <input type="radio" name="gender" value="female"> Mujer
           </p>
         <br>
+        <p>Imagen de perfil<input type="file" placeholder="selecciona tu foto de perfil" name="avatar"></p> 
         <div class="d-grid gap-2">
             <button class="btn btn-primary" type="button">Registrarse</button>
             <button class="btn btn-light" type="button">Cancelar</button>
           </div>
       </div>
 
+      <%- include('partials/footer') %>
 </body>
 </html>

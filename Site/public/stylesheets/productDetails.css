@@ -4,25 +4,32 @@
   padding: 0;
   box-sizing: border-box;
 }
+.carrousel {
+  display: none;
+}
+.carrousel-item img{
+    height: 200px;
+}
 .center{
-  position: absolute;
-  top: 45%;
-  left: 50%;
+/*   position: absolute; */
+  display: flex;
+  /* top: 45%;
+  left: 50%; */
   transform: translate(-50%, -50%);
 }
 .center .stars{
-  height: 150px;
-  width: 500px;
-  text-align: center;
+  height: 25px;
+  /* width: 500px; */
+ /*  text-align: center; */
 }
 .stars input{
   display: none;
 }
 .stars label{
-  float: right;
-  font-size: 100px;
+ /*  float: right; */
+  font-size: 25px;
   color: lightgrey;
-  margin: 0 5px;
+  margin: 0 3px;
   text-shadow: 1px 1px #bbb;
 }
 .stars label:before{
@@ -42,13 +49,13 @@
   text-shadow: 1px 1px goldenrod;
 }
 .stars .result:before{
-  position: absolute;
+/*   position: absolute; */
   content: "";
-  width: 100%;
-  left: 50%;
+  /* width: 100%; */
+ /*  left: 50%; */
   transform: translateX(-47%);
-  bottom: -30px;
-  font-size: 30px;
+ /*  bottom: -30px; */
+  font-size: 20px;
   font-weight: 500;
   color: gold;
   font-family: 'Poppins', sans-serif;
