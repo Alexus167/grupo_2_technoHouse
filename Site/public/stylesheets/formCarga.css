@@ -42,7 +42,7 @@
   .boxContainer {
     border: thin solid black;
     padding: 30px;
-    margin-top: 68px;
+    margin-top: 20px;
     margin-bottom: 50px;
     background-color: #cdd0cb;
     border-radius: 40px;
@@ -51,7 +51,16 @@
   
   select {
     cursor: pointer; /*Manito de clic*/
-    background-color: white;
+    background-color: #DDDDDD;
+    display: block;
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    border: solid 1px black;
+    padding: 0 15px;
   }
   
   .disFle {
@@ -76,17 +85,31 @@
   .boxContainer textarea {
     width: 100%;
     height: 100px;
-    margin-top: 20px;
-    border: 2px solid black;
-    border-radius: 3PX;
-    margin-bottom: 20px;
+    margin-top: 0px;
+    margin-bottom: 2px;
     background-color: #DDDDDD;
+    display: block;
+    width: 100%;
+   /* height: 45px;*/
+    margin-bottom: 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: solid 1px
   }
   
   .boxContainer input[type="text"] {
     margin-bottom: 20px;
     width: 100%;
     background-color: #DDDDDD;
+    display: block;
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    border: solid 1px black;
+    padding: 0 15px;
   }
   
   .boxContainer h4 {
@@ -121,28 +144,30 @@ body.cart {
     padding: 10px 30px;
     text-align: center;
     border: none;
-    background-color: #f05454;
+    background-color: #30475e;
     border-radius: 9px;
     width: 70%;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   
-  .cancelar {
-    margin: 0px auto;
-    padding: 10px 30px;
-    text-align: center;
-    border: none;
-    background-color: #f05454;
-    border-radius: 9px;
-    width: 70%;
-    color: white;
-  }
   
   
   #category {
-      width: 100%;
-      background-color: #DDDDDD;
+
+    background-color: #DDDDDD;
+    display: block;
+    width: 100%;
+    height: 45px;
+    margin-bottom: 15px;
+    font-size: 1em;
+    border-radius: 8px;
+    border: none;
+    border: solid 1px black;
+    padding: 0 15px;
   }
   
   .agregarF {
@@ -150,7 +175,7 @@ body.cart {
     padding: 12px 31px;
     text-align: center;
     border: none;
-    background-color: #f05454;
+    background-color: #30475e;
     border-radius: 9px;
     margin-top: 27px;
     width: 62%;
@@ -171,3 +196,13 @@ body.cart {
   .img4 {
     padding-left: 30px;
   }
+
+
+  .products-title {
+    font-size: 2em;
+    font-weight: 400;
+    color: gray;
+    margin: 37px 0px 0px 110px;
+  
+  }
+  

@@ -5,121 +5,125 @@
 
 <body>
     <%- include('partials/header') %>
-
-        <section>
-            <div class="container boxContainer">
-             <div class="row">
-                <div class="col-md-6">
-                    <div class="row">
-                    <div class="col-md-12">
-                        <div class="img">
-                        <img src="/images/2.png" alt="">
-                    </div>
-                        </div>
-                    </div>
-                    
-                    <div class="row">
-                    <div class="col-md-12 dispFl">
-                    <div class="img1">
-                            <img src="/images/1.png" alt="">
-                      </div>
-                        
-                        <div class="img2">
-                            <img src="/images/1.png" alt="">
-                      </div>
-                        
-                        <div class="img3">
-                            <img src="/images/1.png" alt="">
-                      </div>
-                            <div class="img4">
-                            <img src="/images/1.png" alt="">
-                      </div>
-                    </div>   
-                    </div>        
-                        <div class="row">
-                            <div class="col-md-12" id="agregarFoto">
-                            <button type="submit" class="agregarF"> AGREGAR FOTOS </button>
-                                </div>
-                        </div>
-                      </div>
-                
-        
-                      
-
-                       
-                    <div class="col-md-6">
-                         <div class="form1">
-                            <h4>INCLUYE ALGUNOS DETALLES</h4>
-                            <form action="/products/create?_method=POST" method="POST">
-                                <div class="titulo-producto">
-                                    <input type="text" class="prod1" id="name" name="name" placeholder="Nombre del Producto">
-                                </div>
-                                
-                                <div class="select-category">
-                                 
-                                    <select name="category" id="category">
-                                        <option selected disabled>Elegir Categoria</option> <!--Agregando 'selected' & 'disabled', en la etiqueta '<option' deshabilitamos la opción de que el usuario la seleccione -->
-                                        <option value="arduino">Arduino</option>
-                                        <option value="modulos">Modulos</option>
-                                        <option value="sensores">Sensores</option>
-                                        <option value="accesorios">Accesorios</option>
-                                        <option value="servos y motores">Servos y Motores</option>
-                                        <option value="led">Led</option>
-                                        <option value="compontes">Servos y Motores</option>
-                                    </select> 
-                                </div>
-
-                                <div class="desc-op">
-                                    <textarea placeholder="Descripción (opcional)"></textarea>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div class="disFle">
-                                            <h5 class="stock">STOCK</h5>
-                                            <input type="number">
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <input placeholder="Precio por unidad $" type="text">
-                                </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <div>
-                                            <select name="sub-category" id="sub-category">
-                                                <option value="null">Sub categoría</option>
-                                                <option value="oferta">Ofertas</option>
-                                                <option value="nuevo">Nuevos</option>
-                                                <option value="promo">Promo</option>
-                                            </select>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <input placeholder="Precio final $" type="text" id="precioFinal">
-                                </div>
-                                </div>
-
-
-                                <div class="row" id="botones">
-                                    <div class="col-md-6">
-                                        <div>
-                                            <button type="submit" class="agregar"> AGREGAR </button>
-                                        </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="submit" class="cancelar"> CANCELAR </button>                              
-                                  </div>
-                                </div>
-                                
-
-                            </form>
-                        </div>
-                    </div>                   
+    <section>
+        <div class="col-12">
+            <h2 class="products-title">Formulario de creación de productos</h2>
+        </div>
+        <div class="container boxContainer">
+         <div class="row">
+            <div class="col-md-6">
+                <div class="row">
+                <div class="col-md-12">
+                    <div class="img">
+                    <img src="/images/2.png" alt="">
                 </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                <div class="col-md-12 dispFl">
+                <div class="img1">
+                        <img src="/images/1.png" alt="">
+                  </div>
+                    
+                    <div class="img2">
+                        <img src="/images/1.png" alt="">
+                  </div>
+                    
+                    <div class="img3">
+                        <img src="/images/1.png" alt="">
+                  </div>
+                        <div class="img4">
+                        <img src="/images/1.png" alt="">
+                  </div>
+                </div>   
+                </div>        
+                    <div class="row">
+                        <div class="col-md-12" id="agregarFoto">
+                        <button type="submit" class="agregarF"> AGREGAR FOTOS </button>
+                            </div>
+                    </div>
+                  </div>
+            
+    
+                  
+    
+                   
+                <div class="col-md-6">
+                     <div class="form1">
+                        <h4>INCLUYE ALGUNOS DETALLES</h4>
+                        <form action="/products/create?_method=POST" method="POST">
+                            <div class="titulo-producto">
+                                <label for="name" class="form-label">Nombre del producto:</label>
+                                <input type="text" id="name" name="name" placeholder="Ej: Modulo fuente alimentacion" class="form-input">
+                            </div>
+                            
+                            <div class="select-category">
+                                    <label for="category" class="form-label">Categoría:</label>
+                                    <select name="category" id="category" class="form-input">
+                                   
+                                    <option selected disabled >Elegir Categoria</option> <!--Agregando 'selected' & 'disabled', en la etiqueta '<option' deshabilitamos la opción de que el usuario la seleccione -->
+                                        
+                                    <option value="arduino">Arduino</option>
+                                    <option value="modulos">Modulos</option>
+                                    <option value="sensores">Sensores</option>
+                                    <option value="accesorios">Accesorios</option>
+                                    <option value="servos y motores">Servos y Motores</option>
+                                    <option value="led">Led</option>
+                                    <option value="compontes">Servos y Motores</option>
+                                </select> 
+                            </div>
+    
+                            <div class="desc-op">
+                                <label for="description" class="form-label">Descipción:</label>
+						<textarea name="description" id="description" class="form-input"></textarea>
+                            </div>
+    
+                            <div class="row">
+                            <div class="col-md-12">
+                                <label for="price" class="form-label">Precio del producto:</label>
+                                <input type="text" id="price" name="price" placeholder="Ej: $5678,38" class="form-input">                            </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label for="discount" class="form-label">Descuento:</label>
+                                    <input type="text" id="discount" name="discount" placeholder="Ej: %15" class="form-input">
+                                </div>
+                            </div>
+
+                            
+    
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div>
+                                        <label for="sub-category" class="form-label">Sub-Categoría:</label>
+            
+                                        <select name="sub-category" id="sub-category">
+                                            <option selected disabled >Elegi</option>
+                                            <option value="oferta">Ofertas</option>
+                                            <option value="nuevo">Nuevos</option>
+                                            <option value="promo">Promo</option>
+                                        </select>
+                                    </div>
+                            </div>
+                        </div>
+    
+                            <div class="row" id="botones">
+                                <div class="col-md-12">
+                                    <div>
+                                        <button type="submit" class="agregar"> GUARDAR </button>
+                                    </div>
+                            </div>
+                            </div>
+                            
+    
+                        </form>
+                    </div>
+                </div>                   
             </div>
-        </section>
+        </div>
+    </section>
 
         <%- include('partials/footer') %>
   
