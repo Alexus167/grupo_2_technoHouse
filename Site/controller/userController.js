@@ -4,5 +4,11 @@ module.exports={
         res.render('iniciar', {
           title:'iniciar',
         })
+      },
+
+      registro: (req, res) => {
+        res.render('registro', {
+          title: 'registro'
+        })
       }
 }

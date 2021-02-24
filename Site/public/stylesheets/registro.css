@@ -1,32 +1,6 @@
-body{
-  background: #DDDDDD;
-}
+ /*FORMULARIO DE REGISTRO*/
 
-
-/*HEADER*/
-
-.header-inicia nav {
-  background-image: linear-gradient(to bottom right, #222831, #30475e);
-    padding-bottom: 20px;
-
-}
-
-.header-inicia img {
-  width: 200px;
-
-}
-
-.form-control {
-    padding: 0.375rem 15.75rem;
-    padding: 0.375rem 15.75rem;
-    border-radius: 28px;
-    font-size: small;
-}
-
-
-  /*FORMULARIO DE INICIAR*/
-
-  .inicia{
+ .inicia{
     width: 100%;
     padding: 10px;
     display: flex;
@@ -158,35 +132,3 @@ body{
     color: #30475e;
     text-align: center;
 }
-#flexCheckDefault{
-  border: solid 1px gray;
-    width: auto;
-    margin-top: none !important;
-}
-
-.mt-4 {
-  margin-top: 0rem!important;
-}
-
-label {
-  
-  margin-left: 5px;
-}
-
- /*RESPONSIVE*/
-
- @media(min-width:768px) {
-
-  .login-container{
-  
-    flex-direction: row;
-    margin: 30px 0;
-  }
- }
-
- @media (min-width:1024px){
-  .login-container{
-  
-    width: 331px
-  }
- }
