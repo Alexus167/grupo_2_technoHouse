@@ -1,0 +1,19 @@
+[{
+    "id": 1,
+    "first_name": "Jonell",
+    "last_name": "Kment",
+    "email": "jkment0@google.de",
+    "gender": "Genderqueer"
+  }, {
+    "id": 2,
+    "first_name": "Elisa",
+    "last_name": "Arnoult",
+    "email": "earnoult1@sciencedirect.com",
+    "gender": "Bigender"
+  }, {
+    "id": 3,
+    "first_name": "Joli",
+    "last_name": "Cadamy",
+    "email": "jcadamy2@qq.com",
+    "gender": "Genderfluid"
+  }]
