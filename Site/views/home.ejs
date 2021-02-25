@@ -65,7 +65,27 @@
 				<h2>Basadø en tu última visita</h2>
 			  </div>
 
-			  <div class="col-12 col-md-6 col-lg-3">
+			  <% visitados.forEach(producto => { %>
+				<div class="col-12 col-md-6 col-lg-3">
+					<div class="contenido">
+						<a href="products/detail/<%- producto.id %> ">	
+							<div>
+								<img src="/images/productos/<%- producto.image %> " alt="Imagen del producto">
+								</div>
+							<div class="datos">
+								<h3>$<%- producto.price - (producto.price / 100 * producto.discount) %> </h3>
+								<% if (producto.discount > 0) { %>
+									<span><%- producto.discount %> % OFF</span>
+								<% } %>
+								<p><%- producto.name %> </p>
+								<i class="fas fa-truck"></i>
+							</div>
+							</div>
+						</a>
+				  </div>
+			  <% }) %>
+
+			  <!-- <div class="col-12 col-md-6 col-lg-3">
 				<div class="contenido">
 					<div>
 					<img src="/images/productos/ARDUINO PRO MINI 5V 16MHZ ROBOTICA ATMEL ATMEGA328.jpg" alt="">
@@ -76,9 +96,9 @@
 					<i class="fas fa-truck"></i>
 				  </div>
 				</div>
-			  </div>
+			  </div> -->
 
-			  <div class="col-12 col-md-6 col-lg-3">
+			  <!-- <div class="col-12 col-md-6 col-lg-3">
 				<div class="contenido">
 					<div>
 						<img src="/images/productos/ARDUINO NANO V3.0 ATMEGA328 COMPATIBLE USB CON CH340.jpg" alt="">
@@ -122,7 +142,7 @@
 			  </div>
 
 
-			</div>
+			</div> -->
 		  </section>
 		  <!-- PRODUCTOS OFERTAS -->
 		  <section class="container">
@@ -130,9 +150,30 @@
 			  <div class="col-12">
 				<h2>Ofertas</h2>
 			  </div>
-			  <div class="col-12 col-md-6 col-lg-3">
-				<div class="contenido">
-					<div>
+			  <!-- <div class="col-12 col-md-6 col-lg-3">
+				<div class="contenido"> -->
+
+					<% enOferta.forEach(producto => { %>
+						<div class="col-12 col-md-6 col-lg-3">
+							<div class="contenido">
+								<a href="products/detail/<%- producto.id %> ">	
+									<div>
+										<img src="/images/productos/<%- producto.image %> " alt="Imagen del producto">
+										</div>
+									<div class="datos">
+										<h3>$<%- producto.price - (producto.price / 100 * producto.discount) %> </h3>
+										<% if (producto.discount > 0) { %>
+											<span><%- producto.discount %> % OFF</span>
+										<% } %>
+										<p><%- producto.name %> </p>
+										<i class="fas fa-truck"></i>
+									</div>
+									</div>
+								</a>
+						  </div>
+					  <% }) %>
+					  
+					<!-- <div>
 						<img src="/images/productos/MODULO SENSOR DE SONIDO MICROFONO REGULABLE ARDUINO.jpg" alt="">
 					</div>
 				  <div class="datos">
@@ -184,7 +225,7 @@
 			  </div>
 			</div>
 		  </section>
-
+ -->
 	<!-- CATEGORIAS -->
 
 

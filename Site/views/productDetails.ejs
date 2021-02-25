@@ -30,18 +30,18 @@
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner">
 				  <div class="carousel-item active">
-					<img class="d-block w-100" src="/images/productos/ARDUINO PRO MINI 5V 16MHZ ROBOTICA ATMEL ATMEGA328.jpg" data-color="lightblue" alt="First Image">
+					<img class="d-block w-100" src="images/productos/<%- productos.image  %> " data-color="lightblue" alt="First Image">
 					<div class="carousel-caption d-md-block">
 					</div>
 				  </div>
 				  <div class="carousel-item">
-					<img class="d-block w-100" src="https://http2.mlstatic.com/D_NQ_NP_735755-MLA44650710008_012021-O.webp" data-color="firebrick" alt="Second Image">
+					<img class="d-block w-100" src="images/productos/<%- productos.image  %> " data-color="firebrick" alt="Second Image">
 					<div class="carousel-caption d-md-block">
 						
 					</div>
 				  </div>
 				  <div class="carousel-item">
-					<img class="d-block w-100" src="https://http2.mlstatic.com/D_NQ_NP_692357-MLA44650696154_012021-O.webp" data-color="violet" alt="Third Image">
+					<img class="d-block w-100" src="images/productos/<%- productos.image  %> " data-color="violet" alt="Third Image">
 					<div class="carousel-caption d-md-block">
 					</div>
 				  </div>
@@ -70,10 +70,10 @@
                 <h3>Descripcion</h3>
                 </div>
                 <div class="informacion col-12">
-                <p>El Arduino Nano es una pequeña y completa placa basada en el  ATmega328. Es muy compacto y puedes ser utilizado fácilmente en un  protoboard. Tiene más o menos la misma funcionalidad que el Arduino Uno, pero con una presentación diferente. La placa es compatible 100%. No posee conector para alimentación externa, y funciona con un cable USB Mini-B (incluido) en vez del cable estándar.</p>
+                <p><%- productos.description %> .</p>
                 </div>
             <div class="precios col-6">
-                <h2>$320.00</h2>
+                <h2>$<%- producto.price - (producto.price / 100 * producto.discount) %></h2>
             </div>
             <div class="centro col-6">
                     <div class="stars">
