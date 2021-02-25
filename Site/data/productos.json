@@ -3,7 +3,7 @@
      "id": 1,
      "name": "ARDUINO PRO MINI 5V 16MHZ ROBOTICA ATMEL ATMEGA328",
      "price": 500,
-     "discount": 97,
+     "discount": 80,
      "category": "arduino",
      "cuantity": 2,
      "description": "El Arduino Pro mini es una placa basada en el ATmega328P. Tiene 20 pines digitales de entrada/salida (de las cuales 6 se puede utilizar como salidas PWM), 6 entradas analogicas, un cristal de cuarzo de 16 MHz, un conector de programacion, y un boton de reinicio. Contiene todo lo necesario para empezar a usar el microcontrolador. Basta con conectarlo una fuente de alimentacion para empezar.",
