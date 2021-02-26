@@ -22,7 +22,7 @@
               <div class="login-container">
                 <div class="register">
                   <h2 class="text1">¡Hola! Completá tus datos </h2>
-                  <form action="">
+                  <form action="" method="POST" enctype="multipart/form-data">
                       <div>
                     <input type="text" placeholder="Nombre" class="nombre"  name="nombre">
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "" %> </span>
@@ -42,11 +42,15 @@
                     <input type="password" placeholder="Contraseña" class="pass">
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "" %> </span>
                 </div>
+
+                <div>
+                  <p>Imagen de perfil<input type="file" placeholder="selecciona tu foto de perfil" name="avatar"></p> 
+                </div>
                     
                     <input type="submit" class="submit" value="INICIAR">
                   </form>
                   <a href="#" style="color: #30475e;">
-                      <h1 class="noLogin">¿Estás registrado? <a href="users/iniciar"></a>Inicia sesión</h1>
+                      <h1 class="noLogin">¿Estás registrado? <a href="/iniciar"></a>Inicia sesión</h1>
                   
                 </div>
                <!-- <div class="login">

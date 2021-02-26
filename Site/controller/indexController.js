@@ -5,30 +5,36 @@ const productos=getProducts()
 
 module.exports= {
   index: (req, res) => {
+    const enOferta = productos.filter((producto) => {
+      return producto.category === 'arduino'
+    });
+    const visitados = productos.filter((producto) => {
+      return producto.category === 'modulos'
+    });
     res.render('home', {
-      title: "Techno House",
-      productos
+      enOferta,
+      visitados,
     });
   },
   show: (req, res) => {
-    let auto = autos.find(auto => {
-      return auto.id == req.params.id
+    let productos = productos.find(producto => {
+      return producto.id == req.params.id
     });
     res.render('productsDetail', {
       title: "Vista de detalle",
-      auto
+      producto
     });
   },
   search: (req, res) => {
     const buscar = req.query.buscar;
 
-    const resultado = autos.filter(auto => {
-      return auto.modelo.includes(buscar)
+    const resultado = productos.filter(producto => {
+      return producto.category.includes(buscar)
     })
 
-    res.render('autos', {
+    res.render('productos', {
       title: "Resultado de la búsqueda",
-      autos: resultado
+      productos: resultado
     })
   },
 
@@ -40,11 +46,6 @@ module.exports= {
     shipping: (req,res)=> {
       res.render('shipping', {
           title: "envio"
-      })
-    },
-    remove: (req,res)=> {
-      res.render('remove',{
-          title: "retiro de producto"
       })
     },
     productDetails: (req,res)=> {

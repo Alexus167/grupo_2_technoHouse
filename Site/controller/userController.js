@@ -5,10 +5,15 @@ module.exports={
           title:'iniciar',
         })
       },
-
+      processIniciar: (req,res) => {
+        res.send(req,body)
+      },
       registro: (req, res) => {
         res.render('registro', {
           title: 'registro'
         })
+      },
+      processRegistro: (req,res) => {
+        res.send(req,body)
       }
 }

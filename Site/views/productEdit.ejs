@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head')  %> 
+<body>
+    <%- include('./partials/header')  %> 
+
+    <div class="container">
+        <form action="/update/<%= producto.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <h3>Agregar</h3>
+            <hr>
+            <div class="row">
+              <div class="col-md-6 col-lg-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="name" placeholder="name" name="name" value="<%= producto.name %>">
+                  <label for="name">Nombre</label>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="category" placeholder="Categoria" name="category" value="<%= producto.category %> ">
+                  <label for="category">Categoria</label>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="price" placeholder="Precio" name="price" value="<%= producto.price %> ">
+                  <label for="price">Precio</label>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="discount" placeholder="oferta" name="discount" value="<%= producto.discount %> ">
+                  <label for="discount">Descuento</label>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-floating mb-3">
+                  <input type="text" class="form-control" id="description" placeholder="descripción" name="description" value="<%= producto.description %> ">
+                  <label for="description">Descripción</label>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="form-floating mb-3">
+                  <div class="">
+                    
+                    <input class="form-control" type="file" id="formFile" name="image">
+                    <label for="" class="text-right"><%= producto.image %></label>
+                  </div>
+                </div>
+              </div>
+            
+            </div>
+          
+            <div class="d-grid gap-2">
+              <button class="btn btn-success" type="submit">Guardar cambios</button>
+            </div>
+          
+           
+            </form>
+    </div>
+ 
+    <%- include('./partials/footer')  %> 
+
+</body>
+</html>

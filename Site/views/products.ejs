@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('partials/head')%>   
+    <title>Listado de Productos</title>
+</head>
+<body>
+    <%- include('partials/header')%>   
+
+    <div class="container">
+        <h1>Listado de Productos</h1>
+
+        <section class="row ">
+            <% productos.forEach(producto=> { %>
+              <article class="col-12 col-md-4 col-lg-3 ">
+                <ul class="list-group list-group-flush my-3 ">
+                  <li class="list-group-item">
+                    <h4>
+                      <%= producto.name %>
+                    </h4>
+                  </li>
+                  <li class="list-group-item">
+                    <h5>
+                      <%= producto.category %>
+                    </h5>
+                  </li>
+                  <li class="list-group-item">
+                    <h6>
+                      <%= producto.price %>
+                    </h6>
+                  </li>
+                  <li class="list-group-item"><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal-<%= producto.id %> ">
+                      <%= producto.image %>
+                    </a></li>
+                  <li class="list-group-item">
+                    <div class="m-2 d-flex justify-content-around">
+                      <form action="/edit/<%= producto.id %>">
+                        <button class="btn btn-sm btn-success" type="submit">Editar</a></button> 
+                      </form>
+                      <form action="/delete/<%= auto.id %>?_method=DELETE" method="POST">
+                        <button class="btn btn-sm btn-danger" type="submit">Eliminar</a></button> 
+                      </form>
+                    </div>
+                  </li>
+                </ul>
+              </article>
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModal-<%= auto.id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h6 class="modal-title" id="exampleModalLabel"><%= producto.name %> - <%= producto.category %> </h6>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <img src="/images/<%= auto.img %> " class="img-fluid" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <% }) %>
+          </section>
+    </div>
+    
+    <%- include('partials/footer')%>   
+</body>
+</html>
