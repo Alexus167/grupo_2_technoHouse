@@ -60,6 +60,7 @@ h5 {
   }
   .productos img {
     width: 95%;
+    margin-top: 56px;
   }
   .productos .datos {
     display: flex;
@@ -95,20 +96,117 @@ h5 {
 
   /* CATEGORIAS */
 
+  .categoriaTitulo {
+    font-size: 24px;
+    color: #666666;
+    margin: 30px 0;
+  }
+
+  .cate {
+    margin-bottom: 25px;
+  }
+
 #categorias {
-  margin-bottom: 40px;
-    margin-top: 20px;
+  margin-bottom: 22px;
+  margin-top: 10px;
+
 }
 
-.caja1{
-  -webkit-transition: 1s linear;
-  transition: 1s linear;
+.caja1 {
+  -webkit-transition: 0.2s linear;
+  transition: 0.2s linear;
   color: black;
-  
-  
+  width: 270px;
+  margin: 0 auto;
 }
+
+
 .caja1:hover{
   -webkit-box-shadow: 10px 10px 14px 2px rgba(0,0,0,0.47);
   box-shadow: 10px 10px 14px 2px rgba(0,0,0,0.47);
 }
+
+.categorias1 {
+  margin-bottom: 10px;
+}
+
+.contenedor{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
+.back1 {
+  background-image: url(../images/ARDUINO_01.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 270px;
+  color: white;
+}
+
+
+h3.titleBack {
+  height: 270px;
+  line-height: 270px;
+  text-align: center;
+  color: white;
+}
+
+.back2 {
+  background-image: url(../images/ARDUINO_02.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 270px;
+  color: white;
+}
+
+.back3 {
+  background-image: url(../images/ARDUINO_03.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 270px;
+  color: white;
+}
+.back4 {
+  background-image: url(../images/ARDUINO_04.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 270px;
+  color: white;
+}
+
+.back5 {
+  background-image: url(../images/ARDUINO_05.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 270px;
+  color: white;
+}
+
+.back6 {
+  background-image: url(../images/ARDUINO_06.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 270px;
+  color: white;
+}
+
+.back7 {
+  background-image: url(../images/ARDUINO_07.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 270px;
+  color: white;
+}
+
+.back8 {
+  background-image: url(../images/ARDUINO_08.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 270px;
+  color: white;
+}
+
+
+
 
