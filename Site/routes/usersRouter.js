@@ -7,7 +7,7 @@ router.get('/iniciar',iniciar);
 router.post('/iniciar',processIniciar);
 
 router.get('/registro', registro);
-router.post('/registro'.processRegistro);
+/* router.post('/registro'.processRegistro); */
 
 
 
