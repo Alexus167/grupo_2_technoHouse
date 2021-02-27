@@ -1,6 +1,8 @@
-const productos = require('../data/productos');
+const {getProducts} = require('../data/productos');
 const fs = require('fs');
 const { stringify } = require('querystring');
+
+const productos = getProducts();
 
 module.exports = {
 	// Root - Show all products
@@ -13,14 +15,17 @@ module.exports = {
 
 	// Detail - Detail from one product
 	detail: (req, res) => {
-		const id=req.params.productId;
+		/* const id=req.params.productId;
 
-		const producto=productos.find(producto=>{
-			return producto.id===+id
-		});
+		const producto=productos.find(producto => {
+			return producto.id===+id */
+		const producto = productos.find(producto =>{
+			return producto.id == req.params.id
+		});	
+		
 
 		const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-
+		
 		res.render('productDetails',{
 			producto,
 			toThousand,
@@ -38,7 +43,7 @@ module.exports = {
 		let lastID = 1;
 		productos.forEach(producto => {
 			if (producto.id>lastID) {
-				lastID=auto.id
+				lastID=producto.id
 			}
 		});
 
@@ -91,7 +96,7 @@ module.exports = {
 	},
 
 	// Delete - Delete one product from DB
-	destroy : (req, res) => {
+	destroy: (req, res) => {
 
 		productos.forEach(producto => {
 			if (producto.id ===+ req.params.id) {
