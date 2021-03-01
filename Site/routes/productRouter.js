@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 // ************ Controller Require ************
-const {root, detail, create, store, edit, update, destroy} = require('../controller/productController');
+const {root, detail, create, store, edit, update, destroy, search} = require('../controller/productController');
 
 router.get('/', root); /* GET - All products */
 router.get('/detail/:id', detail); /* GET - Product detail */
@@ -18,5 +18,7 @@ router.put('/update/:id', update); /* PUT - Update in DB */
 
 /*** DELETE ONE PRODUCT***/ 
 router.delete('/delete/:id', destroy); /* DELETE - Delete from DB */
+
+router.get('/search', search);
 
 module.exports = router;

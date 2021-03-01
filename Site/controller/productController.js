@@ -9,7 +9,7 @@ module.exports = {
 	root: (req, res) => {
 		res.render('products',{
 			productos,
-			toThousand,
+		/* 	toThousand, */
 		});
 		},
 
@@ -68,8 +68,8 @@ module.exports = {
 	// Update - Form to edit
 	edit: (req, res) => {
 
-		const producto = productos.find(producto=>producto.id ===+req.params.id  )
-
+		const producto = productos.find(producto=>producto.id ===+req.params.id)
+		
 		res.render('productEdit',{
 			producto
 		});
@@ -109,6 +109,18 @@ module.exports = {
 			res.redirect('/products');	
 		});
 		
-	}
-};
+	},
 
+	search:(req,res)=>{
+		const buscar = req.query.search
+
+		const resultado = productos.filter(producto=>{
+			return producto.name.includes(buscar)
+		})
+
+		res.render('products',{
+			title: 'Resultado de la busqueda',
+			productos : resultado,
+		});
+	},
+}
