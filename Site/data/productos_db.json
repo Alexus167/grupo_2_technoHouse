@@ -64,13 +64,14 @@
      "image": "PACK 50 LEDS 3MM ROJOS AMARILLOS VERDES AZUL BLANCO.jpg",
      "category": "leds"
     },
+
     {
      "id": 8,
      "name": "DISPLAY LCD 1602 HD44780 FONDO AZUL TEXTO BLANCO 16X2",
      "description": "Display LCD de 16 caracteres x 2 lineas. Posee el controlador HD44780, el mas usado en este tipo de dispositivo. Backlight azul",
      "price": 454,
      "discount": 13,
-     "image": "DISPLAY LCD 1602 HD44780 FONDO AZUL TEXTO BLANCO 16X2",
+     "image": "DISPLAY.jpg",
      "category": "modulos"
     }
     
