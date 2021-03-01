@@ -34,10 +34,10 @@
                     </a></li>
                   <li class="list-group-item">
                     <div class="m-2 d-flex justify-content-around">
-                      <form action="/edit/<%= producto.id %>">
+                      <form action="products/edit/<%= producto.id %>">
                         <button class="btn btn-sm btn-success" type="submit">Editar</a></button> 
                       </form>
-                      <form action="/delete/<%= auto.id %>?_method=DELETE" method="POST">
+                      <form action="products/delete/<%= producto.id %>?_method=DELETE" method="POST">
                         <button class="btn btn-sm btn-danger" type="submit">Eliminar</a></button> 
                       </form>
                     </div>
@@ -45,7 +45,7 @@
                 </ul>
               </article>
               <!-- Modal -->
-              <div class="modal fade" id="exampleModal-<%= auto.id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+              <div class="modal fade" id="exampleModal-<%= producto.id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
@@ -54,7 +54,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <img src="/images/<%= auto.img %> " class="img-fluid" alt="">
+                      <img src="/images/<%= producto.img %> " class="img-fluid" alt="">
                     </div>
                   </div>
                 </div>
