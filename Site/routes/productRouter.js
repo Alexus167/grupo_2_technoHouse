@@ -1,6 +1,8 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
+const path = require('path');
+const upload = require(path.join('..', 'controller','productController'));
 
 // ************ Controller Require ************
 const {root, detail, create, store, edit, update, destroy, search} = require('../controller/productController');
@@ -10,7 +12,7 @@ router.get('/detail/:id', detail); /* GET - Product detail */
 
 /*** CREATE ONE PRODUCT ***/ 
 router.get('/create', create); /* GET - Form to create */
-router.post('/store', store); /* POST - Store in DB */
+router.post('/store', upload.any(),store); /* POST - Store in DB */
 
 /*** EDIT ONE PRODUCT ***/ 
 router.get('/edit/:id', edit); /* GET - Form to create */

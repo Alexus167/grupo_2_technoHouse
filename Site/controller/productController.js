@@ -1,15 +1,28 @@
-const {getProducts} = require('../data/productos');
+const {getProducts, setProdcts} = require('../data/productos');
 const fs = require('fs');
+const path = require('path');
+const multer = require('multer')
 const { stringify } = require('querystring');
+const { pathToFileURL } = require('url');
 
 const productos = getProducts();
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
+const storage = multer.diskStorage({
+	destination: (req, file, cb) => {
+	  cb(null, 'public/images/productos')
+	},
+	filename: (req, file, cb) => {
+		cb(null,'producto-' + Date.now() + path.ToFileURL.extname(file.originalname))
+   },
+  })
+  const upload = multer({storage});
 module.exports = {
 	// Root - Show all products
 	root: (req, res) => {
 		res.render('products',{
 			productos,
-		/* 	toThousand, */
+			toThousand,
 		});
 		},
 
@@ -24,7 +37,6 @@ module.exports = {
 		});	
 		
 
-		const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 		
 		res.render('productDetails',{
 			producto,
@@ -39,7 +51,7 @@ module.exports = {
 	},
 	
 	// Create -  Method to store
-	store: (req, res) => {
+	store: (req, res, nexr) => {
 		let lastID = 1;
 		productos.forEach(producto => {
 			if (producto.id>lastID) {
@@ -56,11 +68,11 @@ module.exports = {
 			price,
 			discount,
 			category,
-			image
+			image : req.files[0].filename
 		}
 
 		productos.push(producto);
-		fs.writeFileSync('./data/productos_db.json', stringify(productos),'utf-8')
+		setProdcts(producto);
 
 		res.redirect('/products');
 	},
@@ -88,8 +100,7 @@ module.exports = {
 				producto.category = category;
 				producto.image	= image;
 				}
-
-				fs.writeFileSync('./data/productos_db.json', stringify(productos),'utf-8')
+				setProdcts(producto);
 				res.redirect('/products');		
 		});
 
@@ -105,7 +116,7 @@ module.exports = {
 			}
 
 			
-			fs.writeFileSync('./data/productos_db.json', stringify(productos),'utf-8')
+			setProdcts(producto)
 			res.redirect('/products');	
 		});
 		
