@@ -8,15 +8,7 @@ const { pathToFileURL } = require('url');
 const productos = getProducts();
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
-const storage = multer.diskStorage({
-	destination: (req, file, cb) => {
-	  cb(null, 'public/images/productos')
-	},
-	filename: (req, file, cb) => {
-		cb(null,'producto-' + Date.now() + path.ToFileURL.extname(file.originalname))
-   },
-  })
-  const upload = multer({storage});
+
 module.exports = {
 	// Root - Show all products
 	root: (req, res) => {
@@ -87,18 +79,21 @@ module.exports = {
 		});
 	},
 	// Update - Method to update
-	update: (req, res) => {
+	update: (req, res, next) => {
 		const {name, description, price, discount, category, image}=req.body
 
 		productos.forEach(producto => {
 			if (producto.id ===+req.params.id) {
+				if (fs.existsSync(path.join('public','images','productos',producto.image))) {
+					fs.unlinkSync(path.join('public','images','productos',producto.image));
+				}
 				producto.id =+req.params.id;
 				producto.name = name;
 				producto.description = description;
 				producto.price = price;
 				producto.discount = discount;
 				producto.category = category;
-				producto.image	= image;
+				producto.image	= req.files[0].filename;
 				}
 				setProdcts(producto);
 				res.redirect('/products');		
@@ -111,14 +106,17 @@ module.exports = {
 
 		productos.forEach(producto => {
 			if (producto.id ===+ req.params.id) {
+
+				if (fs.existsSync(path.join('public','images','productos',producto.image))) {
+					fs.unlinkSync(path.join('public','images','productos',producto.image));
+				}
 				let eliminar = productos.indexOf(producto);
 				productos.splice(eliminar,1)
 			}
 
-			
+			});
 			setProdcts(producto)
 			res.redirect('/products');	
-		});
 		
 	},
 

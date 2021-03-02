@@ -1,22 +1,15 @@
 const fs = require('fs');
 const path = require('path');
 const bcrypt = require('bcrypt');
-const multer = require('multer')
+const multer = require('multer');
+const {validationResult} = require('express-validator');
+
 const { getUsers, setUsers} = require('../data/users');
 
 
 const users = getUsers();
 
 
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'public/images/avatares')
-  },
-  filename: (req, file, cb) => {
-    cb(null,'avatar-' + Date.now() + path.ToFileURL.extname(file.originalname))
- },
-});
-const upload = multer({storage});
 
 module.exports={
     
@@ -26,23 +19,42 @@ module.exports={
         })
       },
       processIniciar: (req,res) => {
-        const {email, pass} = req.body;
+        let errors = validationResult(req);
+
+        if (!errors.isEmpty()) {
+          return res.render('/users/iniciar',{
+            errors : errors.mapped
+          })
+        }
+        const {email, pass, recordar} = req.body;
 
         let result = users.find(user => user.email === email.trim())
 
         if (result) {
           if (bcrypt.compareSync(pass.trim(),result.pass)) {
+
+            req.session.user = {
+              id : result.id,
+              email : result.email
+            }
+
+            if(recordar != 'undefined'){
+              res.cookie('user',req.session.user,{
+                maxAge : 1000 * 60
+              })
+            }
+
             return res.redirect('/products')
-          }else{
-            res.render('/users/iniciar',{
-              error: "Datos incorrectos"
-            })
           }
-        }else{
-          res.render('/users/iniciar',{
-            error: "Datos incorrectos"
-          })
         }
+            res.render('/users/iniciar',{
+              errors: {
+                error: {
+                  msg : "Datos incorrectos"
+            } 
+          }
+        })
+          
       },
       registro: (req, res) => {
         res.render('registro', {
@@ -50,12 +62,15 @@ module.exports={
         })
       },
       processRegistro: (req,res) => {
-        const {first_name, last_name, email, pass, avatar} = req.body;
+        let errors = validationResult(req);
 
-        let lastID = 1;
-        if (!first_name || !last_name || !email || !pass) {
-          return res.redirect('/users/registro')
+        if (!errors.isEmpty()) {
+          return res.render('/users/registro',{
+            errors : errors.mapped
+          })
         }
+
+        const {first_name, last_name, email, pass, avatar} = req.body;
 
         let result = users.find(user => user.email === email.trim())
         if (result) {
@@ -85,4 +100,12 @@ module.exports={
         setUsers(users);
         res.redirect('/users/iniciar');
       },
+
+      logout: (req,res) => {
+        req.session.destroy();
+        if(req.cookies.user){
+          res.cookie('user','', {maxAge : -1})
+        }
+        res.redirect('/')
+      }
 }
