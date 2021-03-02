@@ -9,7 +9,7 @@ module.exports = {
 	root: (req, res) => {
 		res.render('products',{
 			productos,
-			toThousand,
+			/*toThousand,*/
 		});
 		},
 

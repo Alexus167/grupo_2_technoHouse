@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,700;1,400&display=swap');
+
+/*TITULO PRINCIPAL */ 
+
+body .titulo {
+    font-size: 24px;
+    color: #666666;
+    margin: 20px 0;
+    
+}
+
+/* PRODUCTOS */
+
+.my-3 {
+    border-radius: 5px;
+    -webkit-transition: 0.2s linear;
+    transition: transform .5s ease, box-shadow .5s ease;
+    color: black;
+}
+
+.my-3:hover{
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+  }
+
+.nameProducto {
+    font-size: 18px;
+    color: #30475e;
+}
+
+/*BOTON*/
+
+.button {
+  position: relative;
+  padding: 1em 1.5em;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  font-size: 18px;
+  margin: 1em 0.8em;
+  text-transform: lowercase;
+}
+
+.button:first-letter {
+    text-transform: uppercase;
+}
+
+.type4 {
+    color: black;
+}
+
+
+.type4::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 0;
+    left: 0;
+    background-color: #30475e;
+    transition: width 0.3s ease-in-out;
+}
+ 
+
+.type4::after
+{
+    bottom: 0; 
+}
+ 
+
+.type4:hover::after{
+    width: 50px;
+}
+  

@@ -129,6 +129,9 @@
 
 .noLogin {
     font-size: 17px;
-    color: #30475e;
     text-align: center;
+}
+
+.noLogin1 {
+  color: #486a8c;
 }
