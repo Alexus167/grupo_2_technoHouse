@@ -11,7 +11,7 @@ router.get('/iniciar',iniciar);
 router.post('/iniciar',validationIniciar,processIniciar);
 
 router.get('/registro', registro);
-router.post('/registro',validationRegistro, processRegistro);
+router.post('/registro',upload.any(),validationRegistro, processRegistro);
 
 router.get('/logout', logout);
 

@@ -6,7 +6,7 @@ const storage = multer.diskStorage({
       cb(null, 'public/images/avatares')
     },
     filename: (req, file, cb) => {
-      cb(null,'avatar-' + Date.now() + path.ToFileURL.extname(file.originalname))
+      cb(null,'avatar-' + Date.now() + path.extname(file.originalname))
    },
   });
   const upload = multer({storage});

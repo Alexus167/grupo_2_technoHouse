@@ -65,8 +65,8 @@ module.exports={
         let errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-          return res.render('/users/registro',{
-            errors : errors.mapped
+          return res.render('registro',{
+            errors : errors.mapped()
           })
         }
 
@@ -74,7 +74,7 @@ module.exports={
 
         let result = users.find(user => user.email === email.trim())
         if (result) {
-          return res.render('users/registro',{
+          return res.render('registro',{
             error: "El usuario ya esta registrado"
           })
         }
