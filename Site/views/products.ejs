@@ -34,10 +34,10 @@
                     
                   <li class="list-group-item">
                     <div class="m-2 d-flex justify-content-around">
-                      <form action="products/edit/<%= producto.id %>">
+                      <form action="/products/edit/<%= producto.id %>">
                         <button class="btn btn-sm btn-success" type="submit">Editar</a></button> 
                       </form>
-                      <form action="products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                      <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
                         <button class="btn btn-sm btn-danger" type="submit">Eliminar</a></button> 
                       </form>
                     </div>
@@ -61,6 +61,7 @@
               </div>
               <% }) %>
           </section>
+          <a href="/users/logout">Cerrar Sesión</a>
     </div>
     
     <%- include('partials/footer')%>   

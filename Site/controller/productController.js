@@ -1,8 +1,13 @@
-const {getProducts} = require('../data/productos');
+const {getProducts, setProdcts} = require('../data/productos');
 const fs = require('fs');
+const path = require('path');
+const multer = require('multer')
 const { stringify } = require('querystring');
+const { pathToFileURL } = require('url');
 
 const productos = getProducts();
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
 
 module.exports = {
 	// Root - Show all products
@@ -24,7 +29,6 @@ module.exports = {
 		});	
 		
 
-		const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 		
 		res.render('productDetails',{
 			producto,
@@ -39,7 +43,7 @@ module.exports = {
 	},
 	
 	// Create -  Method to store
-	store: (req, res) => {
+	store: (req, res, nexr) => {
 		let lastID = 1;
 		productos.forEach(producto => {
 			if (producto.id>lastID) {
@@ -56,11 +60,11 @@ module.exports = {
 			price,
 			discount,
 			category,
-			image
+			image : req.files[0].filename
 		}
 
 		productos.push(producto);
-		fs.writeFileSync('./data/productos_db.json', stringify(productos),'utf-8')
+		setProdcts(producto);
 
 		res.redirect('/products');
 	},
@@ -68,28 +72,30 @@ module.exports = {
 	// Update - Form to edit
 	edit: (req, res) => {
 
-		const producto = productos.find(producto=>producto.id ===+req.params.id  )
-
+		const producto = productos.find(producto=>producto.id ===+req.params.id)
+		
 		res.render('productEdit',{
 			producto
 		});
 	},
 	// Update - Method to update
-	update: (req, res) => {
+	update: (req, res, next) => {
 		const {name, description, price, discount, category, image}=req.body
 
 		productos.forEach(producto => {
 			if (producto.id ===+req.params.id) {
+				if (fs.existsSync(path.join('public','images','productos',producto.image))) {
+					fs.unlinkSync(path.join('public','images','productos',producto.image));
+				}
 				producto.id =+req.params.id;
 				producto.name = name;
 				producto.description = description;
 				producto.price = price;
 				producto.discount = discount;
 				producto.category = category;
-				producto.image	= image;
+				producto.image	= req.files[0].filename;
 				}
-
-				fs.writeFileSync('./data/productos_db.json', stringify(productos),'utf-8')
+				setProdcts(producto);
 				res.redirect('/products');		
 		});
 
@@ -100,15 +106,30 @@ module.exports = {
 
 		productos.forEach(producto => {
 			if (producto.id ===+ req.params.id) {
+
+				if (fs.existsSync(path.join('public','images','productos',producto.image))) {
+					fs.unlinkSync(path.join('public','images','productos',producto.image));
+				}
 				let eliminar = productos.indexOf(producto);
 				productos.splice(eliminar,1)
 			}
 
-			
-			fs.writeFileSync('./data/productos_db.json', stringify(productos),'utf-8')
+			});
+			setProdcts(producto)
 			res.redirect('/products');	
-		});
 		
-	}
-};
+	},
 
+	search:(req,res)=>{
+		const buscar = req.query.search
+
+		const resultado = productos.filter(producto=>{
+			return producto.name.includes(buscar)
+		})
+
+		res.render('products',{
+			title: 'Resultado de la busqueda',
+			productos : resultado,
+		});
+	},
+}
