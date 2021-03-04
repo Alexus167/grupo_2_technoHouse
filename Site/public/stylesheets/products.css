@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,700;1,400&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:wght@400;700&display=swap');
+
 
 /*TITULO PRINCIPAL */ 
 
@@ -6,6 +9,8 @@ body .titulo {
     font-size: 24px;
     color: #666666;
     margin: 20px 0;
+    font-family: 'Roboto';
+    font-weight:400px;
     
 }
 
@@ -24,8 +29,11 @@ body .titulo {
   }
 
 .nameProducto {
-    font-size: 18px;
+    font-size: 16px;
     color: #30475e;
+    font-family: 'Montserrat';
+    font-weight: 700px;
+    text-align: left;
 }
 
 /*BOTON*/
@@ -47,7 +55,10 @@ body .titulo {
 }
 
 .type4 {
-    color: black;
+    color: #30475e; 
+    font-family: 'Montserrat';
+    font-weight: 700px;
+    text-align: left;
 }
 
 
@@ -71,5 +82,19 @@ body .titulo {
 
 .type4:hover::after{
     width: 50px;
+}
+
+.precioF{
+    color: #30475e;
+    font-family: 'Montserrat';
+    font-weight: 700px;
+    text-align: left;
+}
+
+.categoria {
+    color: #30475e; 
+    font-family: 'Montserrat';
+    font-weight: 700px;
+    text-align: left;
 }
   
