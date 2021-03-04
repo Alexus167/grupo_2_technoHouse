@@ -11,7 +11,8 @@ const indexRouter = require('./routes/indexRouter');
 const usersRouter = require('./routes/usersRouter');
 const productRouter = require('./routes/productRouter');
 
-var cookieCheck = require('./validations/cookieCheck');
+var cookieCheck = require('./middlewares/cookieCheck');
+let checkLocals = require('./middlewares/checkLocals');
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.use(methodOverride('_method'));
 app.use(session({secret : "TechnoHouse it's alive!"}));
 
 app.use(cookieCheck);
+app.use(checkLocals);
 
 /* RUTAS */ 
 

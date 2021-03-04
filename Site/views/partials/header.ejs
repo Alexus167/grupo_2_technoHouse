@@ -17,21 +17,26 @@
       </div>
 
       <div class=" botones-nav col-12 col-md-8 col-lg-4">
-          <a href="/cart">
-            <button class="btn btn-outline-light">
-              Carrito <i class="fas fa-cart-plus"></i></button
-          ></a>
-          <a href="/users/iniciar">
-            <button class="btn btn-outline-light">
-              Ingresá <i class="fas fa-address-card"></i></button
-                      ></a>
-                      <a href="/">
-                        <button class="btn btn-outline-light">
-                          Guardado <i class="fas fa-heart"></i></button></a>
-
-
-                </div>
-                </div>
-            </div>
-        </header>
+        <a href="/cart">
+          <button class="btn btn-outline-light">
+            Carrito <i class="fas fa-cart-plus"></i></button></a>
         
+            <% if (typeof user != 'undefined') { %>
+              <a href="/users/logout">
+                <button class="btn btn-outline-light">
+                  Logout <i class="fas fa-address-card"></i></button></a>
+            <% } else { %>
+              <a href="/users/iniciar">
+                <button class="btn btn-outline-light">
+                  Ingresá <i class="fas fa-address-card"></i></button></a>
+              <%  } %>
+
+        <a href="/">
+          <button class="btn btn-outline-light">
+            Guardado <i class="fas fa-heart"></i></button></a>
+
+
+      </div>
+    </div>
+  </div>
+</header>

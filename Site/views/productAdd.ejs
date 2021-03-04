@@ -6,6 +6,8 @@
 <body>
     <%- include('partials/header') %>
     <section>
+        <form action="/products/store" method="POST" enctype="multipart/form-data">
+
         <div class="col-12">
             <h2 class="products-title">Formulario de creación de productos</h2>
         </div>
@@ -40,7 +42,11 @@
                 </div>        
                     <div class="row">
                         <div class="col-md-12" id="agregarFoto">
-                        <button type="submit" class="agregarF" > AGREGAR FOTOS </button>
+                            <label for="image" class="agregarF">
+                                AGREGAR FOTOS
+                            </label>
+                            <input type="file" id="image" name="image" class="d-none">
+
                             </div>
                     </div>
                   </div>
@@ -52,7 +58,6 @@
                 <div class="col-md-6">
                      <div class="form1">
                         <h4>INCLUYE ALGUNOS DETALLES</h4>
-                        <form action="products/store_method=PUT" method="POST" enctype="multipart/form-data">
                             <div class="titulo-producto">
                                 <label for="name" class="form-label">Nombre del producto:</label>
                                 <input type="text" id="name" name="name" placeholder="Ej: Modulo fuente alimentacion" class="form-input">
@@ -118,11 +123,12 @@
                             </div>
                             
     
-                        </form>
                     </div>
                 </div>                   
             </div>
         </div>
+    </form>
+
     </section>
 
         <%- include('partials/footer') %>

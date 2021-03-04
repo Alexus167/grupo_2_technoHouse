@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const checkSession = require('../validations/checkSession');
+const checkSession = require('../middlewares/checkSession');
 
 /* Requiero controlador */
 const {index, cart, shipping, formularioPago, /* productDetails */} = require('../controller/indexController');

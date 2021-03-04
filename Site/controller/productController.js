@@ -64,7 +64,7 @@ module.exports = {
 		}
 
 		productos.push(producto);
-		setProdcts(producto);
+		setProdcts(productos);
 
 		res.redirect('/products');
 	},
@@ -95,9 +95,10 @@ module.exports = {
 				producto.category = category;
 				producto.image	= req.files[0].filename;
 				}
-				setProdcts(producto);
-				res.redirect('/products');		
+					
 		});
+		setProdcts(productos);
+				res.redirect('/products');	
 
 	},
 

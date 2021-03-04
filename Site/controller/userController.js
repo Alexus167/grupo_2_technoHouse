@@ -22,8 +22,8 @@ module.exports={
         let errors = validationResult(req);
 
         if (!errors.isEmpty()) {
-          return res.render('/users/iniciar',{
-            errors : errors.mapped
+          return res.render('iniciar',{
+            errors : errors.mapped()
           })
         }
         const {email, pass, recordar} = req.body;
@@ -38,16 +38,17 @@ module.exports={
               email : result.email
             }
 
-            if(recordar != 'undefined'){
+            if(recordar){
               res.cookie('user',req.session.user,{
-                maxAge : 1000 * 60
+                maxAge : 1000 * 60 * 60 * 24 * 7 * 30
+
               })
             }
 
             return res.redirect('/products')
           }
         }
-            res.render('/users/iniciar',{
+            res.render('iniciar',{
               errors: {
                 error: {
                   msg : "Datos incorrectos"
@@ -70,14 +71,9 @@ module.exports={
           })
         }
 
-        const {first_name, last_name, email, pass, avatar} = req.body;
+        const {first_name, last_name, email, pass, avatar, admin} = req.body;
 
-        let result = users.find(user => user.email === email.trim())
-        if (result) {
-          return res.render('registro',{
-            error: "El usuario ya esta registrado"
-          })
-        }
+        let lastID = 0
         users.forEach(user => {
           if (user.id>lastID) {
             lastID=user.id
@@ -92,8 +88,9 @@ module.exports={
           first_name: first_name.trim(),
           last_name: last_name.trim(),
           email: email.trim(),
-          pass: pass.trim(),
-          avatar: req.files[0].filename
+          pass: passHash,
+          avatar: req.files[0].filename,
+          admin: false,
         }
         users.push(newUser);
 

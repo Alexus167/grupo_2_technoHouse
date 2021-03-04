@@ -1,5 +1,7 @@
 const {check, validationResult, body} = require('express-validator');
+const { getUsers} = require('../data/users');
 
+let users = getUsers();
 
 module.exports = [
     check('first_name')
@@ -12,8 +14,8 @@ module.exports = [
         min:4, max:12
     }).notEmpty().withMessage('La contraseña debe tener más de 4 caracteres y menos de 12 caracteres'),
 
-    body('last_name').custom(value => {
-    let result = users.find(users => users.email === email.trim())
+    body('email').custom(value => {
+    let result = users.find(users => users.email === value.trim())
         if (result) {
           return false
           }else{
