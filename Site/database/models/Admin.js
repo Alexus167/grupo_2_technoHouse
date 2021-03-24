@@ -36,5 +36,20 @@ module.exports = (sequelize, dataTypes) => {
 
     const Admin = sequelize.define(alias, cols, config)
 
+
+    Admin.associate = function(models){
+        User.belongsTo(models.User,{
+            as : 'users',
+            foreignKey : 'users_id'
+        })
+    }
+
+    Admin.associate = function(models){
+        User.belongsTo(models.Product,{
+            as : 'products',
+            foreignKey : 'products_id'
+        })
+    }
+
     return Admin
 }

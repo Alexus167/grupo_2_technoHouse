@@ -77,7 +77,7 @@ module.exports={
 
        
 
-        const {firstName, lastName, email, password, avatar, admin} = req.body;
+        const {firstName, lastName, email, password} = req.body;
         let passHash = bcrypt.hashSync(password.trim(),12)
 
 
@@ -117,11 +117,65 @@ module.exports={
         
       },
 
+      edit: (req, res) => {
+
+        let user = db.user.findByPk(req.params.id)
+        let cards = db.cards.findAll()
+        let adress = db.adress.findAll()
+        Promise.all([user,cards,adress])
+        .then(user =>{
+        res.render('perfil',{
+          user
+        });
+         })
+        .catch(error => res.send(error)) 
+      },
+
+      update: (req, res) => {
+
+        const {firstName, lastName, email, password, adresses_id, cards_id}=req.body
+    
+        db.users.update({
+          firstName,
+          lastName,
+          email,
+          password,
+          adresses_id,
+          cards_id
+        },
+        {
+          where : {
+            id : req.params.id
+          }
+        })
+        .then(result => {
+          res.redirect('perfil');	
+        })
+        
+      },
+
+
       logout: (req,res) => {
         req.session.destroy();
         if(req.cookies.user){
           res.cookie('user','', {maxAge : -1})
         }
         res.redirect('/')
-      }
+      },
+
+      destroy: (req, res) => {
+
+        users.forEach(user => {
+      
+          db.user.destroy({
+            where : {
+              id : req.params.id
+            }
+          })
+          .then(result => {
+            res.redirect('/');
+          });
+        })	
+        .catch(error => res.send(error));
+      },
 }
