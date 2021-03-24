@@ -24,12 +24,12 @@
                   <h2 class="text1">¡Hola! Completá tus datos </h2>
                   <form action="/users/registro" method="POST" enctype="multipart/form-data">
                       <div>
-                    <input type="text" placeholder="Nombre" class="nombre"  name="first_name">
+                    <input type="text" placeholder="Nombre" class="nombre"  name="firstName">
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "" %> </span>
                   </div>
 
                   <div>
-                    <input type="text" placeholder="Apellido" class="apellido" name="last_name"> 
+                    <input type="text" placeholder="Apellido" class="apellido" name="lastName"> 
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "" %> </span>
                 </div>
 
@@ -39,7 +39,7 @@
                 </div>
 
                 <div>
-                    <input type="password" placeholder="Contraseña" class="pass" name="pass">
+                    <input type="password" placeholder="Contraseña" class="pass" name="password">
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "" %> </span>
                 </div>
 
