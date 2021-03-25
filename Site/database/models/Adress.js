@@ -15,11 +15,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull : false
         },
         number : {
-            type : dataTypes.INTEGER,
+            type : dataTypes.INTEGER(4),
             allowNull : false
         },
         pc : {
-            type : dataTypes.INTEGER,
+            type : dataTypes.INTEGER(4),
             allowNull : false
         },
         state : {

@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
             type : dataTypes.INTEGER,
             allowNull : false
         },
-        expirationDate : {
+        expiratioDate : {
             type : dataTypes.INTEGER(4),
             allowNull : false
         },
