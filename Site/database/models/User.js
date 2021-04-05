@@ -1,74 +1,37 @@
-module.exports = (sequelize, dataTypes) => {
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class User extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      User.belongsTo(models.Address,{
+        as : "address"
+      }),
 
-    const alias = 'users';
-
-    const cols = {
-
-        id : {
-            type : dataTypes.INTEGER,
-            allowNull : false,
-            autoIncrement : true,
-            primaryKey : true
-        },
-        firstName : {
-            type : dataTypes.STRING(45),
-            allowNull : false
-        },
-        lastName : {
-            type : dataTypes.STRING(45),
-            allowNull : false
-        },
-        email : {
-            type : dataTypes.STRING(45),
-            allowNull : false
-        },
-        password : {
-            type : dataTypes.STRING(12),
-            allowNull : false
-        },
-        cards_id : { 
-            type : dataTypes.INTEGER,
-            allowNull : false
-        },
-        adresses_id : { 
-            type : dataTypes.INTEGER,
-            allowNull : false
-        }
-
+      User.belongsTo(models.Card,{
+        as : "card"
+      })
     }
-
-    const config = {
-        tableName : 'users',
-        timestamps : true, //si no existe ingresamos false
-        underscored : true //indica que lo ingresamos manualmente a traves de un _ 
-    }
-
-
-
-    const User = sequelize.define(alias, cols, config)
-
-    User.associate = function(models){
-        User.belongsTo(models.Product,{
-            as : 'product',
-            through : 'carts',
-            foreignKey : 'users_id',
-            otherKey : 'product_id'
-        })
-    }
-
-    User.associate = function(models){
-        User.belongsTo(models.Adress,{
-            as : 'addresses',
-            foreignKey : 'adresses_id'
-        })
-    }
-
-    User.associate = function(models){
-        User.belongsTo(models.Card,{
-            as : 'cards',
-            foreignKey : 'cards_id'
-        })
-    }
-
-    return User
-}
+  };
+  User.init({
+    name: DataTypes.STRING,
+    lastname: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    avatar: DataTypes.STRING,
+    rol: DataTypes.STRING,
+    addressId: DataTypes.INTEGER,
+    cardsId: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'User',
+  });
+  return User;
+};

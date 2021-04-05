@@ -1,37 +1,25 @@
-module.exports = (sequelize, dataTypes) => {
-
-
-    const alias = 'cards';
-
-    const cols = {
-
-        id : {
-            type : dataTypes.INTEGER,
-            allowNull : false,
-            autoIncrement : true,
-            primaryKey : true
-        },
-        userNum : {
-            type : dataTypes.INTEGER,
-            allowNull : false
-        },
-        expiratioDate : {
-            type : dataTypes.INTEGER(4),
-            allowNull : false
-        },
-        securityCode : {
-            type : dataTypes.INTEGER(4),
-            allowNull : false
-        },
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Card extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
     }
-
-    const config = {
-        tableName : 'cards',
-        timestamps : false
-    }
-
-
-    const Card = sequelize.define(alias, cols, config)
-
-    return Card
-}
+  };
+  Card.init({
+    userNumber: DataTypes.INTEGER,
+    expirationDate: DataTypes.INTEGER,
+    securityCode: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Card',
+  });
+  return Card;
+};

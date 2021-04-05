@@ -6,10 +6,10 @@
 <body>
     <%- include('partials/header') %>
     <section>
-     <form action="/products/update/<%- producto.id %>?_method=PUT">                        >
+     <form action="/products/update/<%- product.id %>?_method=PUT">                        >
  
         <div class="col-12">
-            <h2 class="products-title"><%= producto.name %>
+            <h2 class="products-title"><%= product.name %>
             </h2>
         </div>
         <div class="container boxContainer">
@@ -61,43 +61,37 @@
                         <h4>INCLUYE ALGUNOS DETALLES</h4>
                             <div class="titulo-producto">
                                 <label for="name" class="form-label">Nombre del producto:</label>
-                                <input type="text" id="name" name="name" placeholder="Ej: Modulo fuente alimentacion" class="form-input" value="<%- producto.name %>"
+                                <input type="text" id="name" name="name" placeholder="Ej: Modulo fuente alimentacion" class="form-input" value="<%- product.name %>"
                                 >
                             </div>
                             
                             <div class="select-category">
                                     <label for="category" class="form-label">Categoría:</label>
-                                    <select name="category" id="category" class="form-input" value="<%- producto.category %>"
+                                    <select name="category" id="category" class="form-input"
                                       >
                                    
-                                    <option selected disabled >Elegir Categoria</option> <!--Agregando 'selected' & 'disabled', en la etiqueta '<option' deshabilitamos la opción de que el usuario la seleccione -->
-                                        
-                                    <option value="arduino">Arduino</option>
-                                    <option value="modulos">Modulos</option>
-                                    <option value="sensores">Sensores</option>
-                                    <option value="accesorios">Accesorios</option>
-                                    <option value="servos y motores">Servos y Motores</option>
-                                    <option value="led">Led</option>
-                                    <option value="componentes">Componentes</option>
+                                      <% categories.forEach(category => { %>
+                                        <option <%- product.category_id == category.id ? "selected" : null%> value="<%= category.id %> "><%= category.name %> </option>
+                                    <% }) %>
                                 </select> 
                             </div>
     
                             <div class="desc-op">
                                 <label for="description" class="form-label">Descipción:</label>
-						<textarea name="description" id="description" class="form-input" value="<%- producto.description %>"
+						<textarea name="description" id="description" class="form-input" value="<%- product.description %>"
               ></textarea>
                             </div>
     
                             <div class="row">
                             <div class="col-md-12">
                                 <label for="price" class="form-label">Precio del producto:</label>
-                                <input type="text" id="price" name="price" placeholder="Ej: $5678,38" class="form-input" value="<%- producto.price %>"                                >                            </div>
+                                <input type="text" id="price" name="price" placeholder="Ej: $5678,38" class="form-input" value="<%- product.price %>"                                >                            </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-md-12">
                                     <label for="discount" class="form-label">Descuento:</label>
-                                    <input type="text" id="discount" name="discount" placeholder="Ej: %15" class="form-input" value="<%- producto.discount %>"
+                                    <input type="text" id="discount" name="discount" placeholder="Ej: %15" class="form-input" value="<%- product.discount %>"
                                     >
                                 </div>
                             </div>

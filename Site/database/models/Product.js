@@ -1,56 +1,34 @@
-module.exports = (sequelize, dataTypes) => {
-
-    const alias = 'products';
-
-    const cols = {
-
-        id : {
-            type : dataTypes.INTEGER.UNSIGNED,
-            allowNull : false,
-            autoIncrement : true,
-            primaryKey : true
-        },
-        name : {
-            type : dataTypes.STRING(45),
-            allowNull : false
-        },
-        price : {
-            type : dataTypes.INTEGER.UNSIGNED,
-            allowNull : false
-        },
-        discount : {
-            type : dataTypes.INTEGER.UNSIGNED,
-        },
-        categories_id : { 
-            type : dataTypes.INTEGER,
-            allowNull : false
-        } 
-
+'use strict';
+const {
+  Model
+} = require('sequelize');
+module.exports = (sequelize, DataTypes) => {
+  class Product extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+      Product.belongsTo(models.Category,{
+        as : "category"
+      }),
+      Product.hasMany(models.Image,{
+        as : 'images'
+      })
     }
-
-    const config = {
-        tableName : 'products',
-        timestamps : true, //si no existe ingresamos false
-        underscored : true //indica que lo ingresamos manualmente a traves de un _ 
-    }
-
-    const Product = sequelize.define(alias, cols, config)
-
-    Product.associate = function(models){
-        Product.belongsTo(models.Category,{
-            as : 'category',
-            foreignKey : 'categories_id'
-        })
-    }
-
-    Product.associate = function(models){
-        Product.belongsTo(models.User,{
-            as : 'user',
-            through : 'carts',
-            foreignKey : 'products_id',
-            otherKey : 'users_id'
-        })
-    }
-
-    return Product
-}
+  };
+  Product.init({
+    name: DataTypes.STRING,
+    description: DataTypes.STRING,
+    price: DataTypes.INTEGER,
+    discount: DataTypes.INTEGER,
+    imageId: DataTypes.INTEGER,
+    categoryId: DataTypes.INTEGER
+  }, {
+    sequelize,
+    modelName: 'Product',
+  });
+  return Product;
+};

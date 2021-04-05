@@ -1,10 +1,10 @@
 module.exports = {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "mydb",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+  development: {
+    username: "root",
+    password: "",
+    database: "technohouse_db",
+    host: "127.0.0.1",
+    dialect: "mysql",
   },
   "test": {
     "username": "root",

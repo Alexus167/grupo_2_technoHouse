@@ -1,6 +1,6 @@
 
 const {getProducts}=require('../data/productos')
-
+const db = require('../database/models');
 const productos=getProducts()
 
 module.exports= {
