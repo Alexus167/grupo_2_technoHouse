@@ -179,6 +179,10 @@ label {
   margin-left: 5px;
 }
 
+#recordar { 
+width: 7%;
+border-radius: 67px; 
+}
  /*RESPONSIVE*/
 
  @media(min-width:768px) {
