@@ -59,13 +59,13 @@
 			  <div class="col-12">
 				<h2>Basadø en tu última visita</h2>
 			  </div>
-
-			  <% visitados.forEach(producto => { %>
+			  
+			  <% visitados.forEach(product => { %>
 				<div class="col-12 col-md-6 col-lg-3">
 					<div class="contenido">
-						<a href="/products/detail/<%- producto.id %> ">	
+						<a href="/products/detail/<%= products.id %> ">	
 							<div>
-								<img src="/images/productos/<%- producto.image %> " alt="Imagen del producto">
+								<img src="/images/productos/<%- product.image %> " alt="Imagen del producto">
 								</div>
 							<div class="datos">
 								<h3>$<%- producto.price - (producto.price / 100 * producto.discount) %> </h3>

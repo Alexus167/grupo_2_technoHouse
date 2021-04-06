@@ -8,51 +8,88 @@ const { pathToFileURL } = require('url');
 const productos = getProducts();
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
+const db = require('../database/models');
+const {Op} = require('sequelize');
 
 module.exports = {
 	// Root - Show all products
 	root: (req, res) => {
-		res.render('products',{
-			productos,
+			db.products.findAll({
+				order : [
+					['title','ASC']
+				],
+			})
+			.then(products => {
+				return res.render('products',{
+			products,
+			})
+		/* 
 			/*toThousand,*/
+		//}); */
 		});
 		},
 
 	// Detail - Detail from one product
-	detail: (req, res) => {
+	detail : (req, res) => {
 		/* const id=req.params.productId;
 
 		const producto=productos.find(producto => {
 			return producto.id===+id */
-		const producto = productos.find(producto =>{
+		/* const producto = productos.find(producto =>{
 			return producto.id == req.params.id
-		});	
+		});	 */
 		
-
-		
-		res.render('productDetails',{
-			producto,
+		db.products.findOne({
+			where : {
+				id : req.params.id
+			},
+			include : [
+				{
+					association : 'category'
+				}
+			]
+		})
+		.then(product => {
+			return res.render('productDetails',{
+			product,
 			toThousand,
 			title:'detalles de producto',
+		});	
 		});
 		},
 
 	// Create - Form to create
 	create: (req, res) => {
-		res.render('productAdd');
+		db.categories.findAll()
+		.then(categories => {
+			res.render('productAdd');
+		})
+		.catch(error => res.send(error));
 	},
 	
 	// Create -  Method to store
-	store: (req, res, nexr) => {
-		let lastID = 1;
+	store: (req, res) => {
+		/* let lastID = 1;
 		productos.forEach(producto => {
 			if (producto.id>lastID) {
 				lastID=producto.id
 			}
 		});
+		*/
+		const {name, description, price, discount, category}=req.body
 
-		const {name, description, price, discount, category, image}=req.body
-
+		db.products.create({
+			name,
+			price,
+			description,
+			discount,
+			categories_id : category
+		})
+		.then(newProduct => {
+			res.redirect('/products');
+		})
+		.catch(error => res.send(error));
+		/*
 		let producto = {
 			id: lastID + 1,
 			name,
@@ -64,25 +101,50 @@ module.exports = {
 		}
 
 		productos.push(producto);
-		setProdcts(productos);
+		setProdcts(productos); */
 
-		res.redirect('/products');
+		
 	},
 
 	// Update - Form to edit
 	edit: (req, res) => {
 
-		const producto = productos.find(producto=>producto.id ===+req.params.id)
-		
+		let product = db.products.findByPk(req.params.id)
+		let categories = db.categories.findAll()
+		Promise.all([product,categories])
+		.then(product =>{
 		res.render('productEdit',{
-			producto
+			product
 		});
+	 	})
+		.catch(error => res.send(error)) 
 	},
 	// Update - Method to update
-	update: (req, res, next) => {
-		const {name, description, price, discount, category, image}=req.body
+	update: (req, res) => {
 
-		productos.forEach(producto => {
+		const {name, description, price, discount, categories_id}=req.body
+
+		db.products.update({
+			name,
+			price,
+			description,
+			discount,
+			categories_id
+		},
+		{
+			where : {
+				id : req.params.id
+			}
+		})
+		.then(result => {
+			res.redirect('/products');	
+		})
+		
+	},
+		
+/* 		const {name, description, price, discount, categories_id, image}=req.body
+ */
+		/* productos.forEach(producto => {
 			if (producto.id ===+req.params.id) {
 				if (fs.existsSync(path.join('public','images','productos',producto.image))) {
 					fs.unlinkSync(path.join('public','images','productos',producto.image));
@@ -94,19 +156,30 @@ module.exports = {
 				producto.discount = discount;
 				producto.category = category;
 				producto.image	= req.files[0].filename;
-				}
+				} */
 					
-		});
-		setProdcts(productos);
-				res.redirect('/products');	
 
-	},
+		/* setProdcts(productos); */
+				
 
 	// Delete - Delete one product from DB
 	destroy: (req, res) => {
 
 		productos.forEach(producto => {
-			if (producto.id ===+ req.params.id) {
+	
+			db.products.destroy({
+				where : {
+					id : req.params.id
+				}
+			})
+			.then(result => {
+				res.redirect('/products');
+			});
+		})	
+		.catch(error => res.send(error));
+	},
+
+	/* 	if (producto.id ===+ req.params.id) {
 
 				if (fs.existsSync(path.join('public','images','productos',producto.image))) {
 					fs.unlinkSync(path.join('public','images','productos',producto.image));
@@ -117,20 +190,32 @@ module.exports = {
 
 			});
 			setProdcts(producto)
-			res.redirect('/products');	
-		
-	},
+				
+		 */
 
-	search:(req,res)=>{
-		const buscar = req.query.search
+
+	search : (req,res)=>{
+
+		db.products.findAll({
+			where : {
+				title : {
+					[Op.like] : `%${req.query.search}%`
+				}
+			}
+		})
+		.then(resultado => {
+			return res.render('products',{
+			title: 'Resultado de la busqueda',
+			productos : resultado,
+		});
+		})
+		.catch(error => res.send(error))
+	}
+	/* const buscar = req.query.search
 
 		const resultado = productos.filter(producto=>{
 			return producto.name.includes(buscar)
 		})
 
-		res.render('products',{
-			title: 'Resultado de la busqueda',
-			productos : resultado,
-		});
-	},
+		res.render */
 }

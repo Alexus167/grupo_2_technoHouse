@@ -5,11 +5,14 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const methodOverride = require('method-override');
+require('dotenv').config();
 
 
 const indexRouter = require('./routes/indexRouter');
 const usersRouter = require('./routes/usersRouter');
 const productRouter = require('./routes/productRouter');
+const categoryRouter = require('./routes/categoryRouter');
+const cardRouter = require('./routes/cardRouter');
 
 var cookieCheck = require('./middlewares/cookieCheck');
 let checkLocals = require('./middlewares/checkLocals');
@@ -35,7 +38,9 @@ app.use(checkLocals);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products',productRouter )
+app.use('/products', productRouter);
+app.use('/categories', categoryRouter);
+app.use('/cards', cardRouter);
 
 
 // catch 404 and forward to error handler
