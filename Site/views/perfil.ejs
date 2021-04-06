@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%-include("partials/head")%>
+<body>
+    <%-include("partials/header")%>
+    <script type="text/javascript">
+        document.querySelector(".vender-li").classList.add("active")
+    </script>
+
+    <div class="profile">
+        <h1> <%= user.name + " " + user.lastName %> </h1>
+        <img class= "avatar" src="/images/users/<%=user.profile%>" alt="">
+        <a  href='/user/iniciar'> Cerrar sessión </a>
+    </div>
+    <%-include("./partials/footer")%>
+</body>
+</html>
