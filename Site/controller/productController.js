@@ -97,7 +97,7 @@ module.exports = {
 			price,
 			discount,
 			category,
-			image : req.files[0].filename
+			image : req.files[0].filename,
 		}
 
 		productos.push(producto);
