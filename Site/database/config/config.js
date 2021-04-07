@@ -5,6 +5,7 @@ module.exports = {
     database: "technohouse_db",
     host: "127.0.0.1",
     dialect: "mysql",
+    seederStorage: "sequelize",
   },
   "test": {
     "username": "root",

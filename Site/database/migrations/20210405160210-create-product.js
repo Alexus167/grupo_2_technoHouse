@@ -24,25 +24,9 @@ module.exports = {
       discount: {
         type: Sequelize.INTEGER
       },
-      imageId: {
-        type: Sequelize.INTEGER,
-        allowNull : false,
-        references : {
-          model : {
-            taleName : 'Images'
-          },
-          key :'id'
-        }
-      },
       categoryId: {
         type: Sequelize.INTEGER,
-        allowNull : false,
-        references : {
-          model : {
-            taleName : 'Categories'
-          },
-          key :'id'
-        }
+        allowNull : false
       },
       createdAt: {
         allowNull: false,
