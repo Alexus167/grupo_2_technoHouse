@@ -1,15 +1,14 @@
-
-const {getProducts}=require('../data/productos')
 const db = require('../database/models');
+const {getProducts}=require('../data/productos')
 const productos=getProducts()
 
 module.exports= {
   index: (req, res) => {
-    const enOferta = productos.filter((producto) => {
-      return producto.category === 'arduino'
+    const enOferta = productos.filter((product) => {
+      return product.category === 'arduino'
     });
-    const visitados = productos.filter((producto) => {
-      return producto.category === 'modulos'
+    const visitados = productos.filter((product) => {
+      return product.category === 'modulos'
     });
     res.render('home', {
       enOferta,
@@ -17,8 +16,8 @@ module.exports= {
     });
   },
   show: (req, res) => {
-    let productos = productos.find(producto => {
-      return producto.id == req.params.id
+    let productos = productos.find(product => {
+      return product.id == req.params.id
     });
     res.render('productsDetail', {
       title: "Vista de detalle",
@@ -28,8 +27,8 @@ module.exports= {
   search: (req, res) => {
     const buscar = req.query.buscar;
 
-    const resultado = productos.filter(producto => {
-      return producto.category.includes(buscar)
+    const resultado = productos.filter(product => {
+      return product.category.includes(buscar)
     })
 
     res.render('productos', {
