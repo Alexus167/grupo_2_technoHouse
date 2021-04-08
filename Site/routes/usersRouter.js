@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 const upload = require(path.join('..', 'utils','multerUsers'));
-const {iniciar,processIniciar, registro, processRegistro, logout}=require('../controller/userController');
+const {iniciar,processIniciar, registro, processRegistro, logout, edit, update, destroy}=require('../controller/userController');
 const validationRegistro = require('../validations/validationRegistro');
 const validationIniciar = require('../validations/validationIniciar');
 const checkLog = require('../middlewares/checkLog')
+const checkSession = require('../middlewares/checkSession');
 /* GET users listing. */
 
 /*** SIGN IN USER ***/
@@ -22,7 +23,7 @@ router.put('/perfil/:id',checkSession, upload.any(),update); /* PUT - Update in 
 
 router.get('/logout', logout);
 
-/*** DELETE ONE PRODUCT***/ 
+/*** DELETE ONE USER***/ 
 router.delete('/perfil/delete/:id',checkSession, destroy); /* DELETE - Delete from DB */
 
 

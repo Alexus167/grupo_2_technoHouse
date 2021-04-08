@@ -63,16 +63,16 @@
 			  <% visitados.forEach(product => { %>
 				<div class="col-12 col-md-6 col-lg-3">
 					<div class="contenido">
-						<a href="/products/detail/<%= products.id %> ">	
+						<a href="products/detail/<%-product.id%>">	
 							<div>
-								<img src="/images/productos/<%- product.image %> " alt="Imagen del producto">
+								<img src="<%- images %> " alt="Imagen del producto">
 								</div>
 							<div class="datos">
-								<h3>$<%- producto.price - (producto.price / 100 * producto.discount) %> </h3>
-								<% if (producto.discount > 0) { %>
-									<span><%- producto.discount %> % OFF</span>
+								<h3>$<%- products.price - (products.price / 100 * products.discount) %> </h3>
+								<% if (products.discount > 0) { %>
+									<span><%- products.discount %> % OFF</span>
 								<% } %>
-								<p><%- producto.name %> </p>
+								<p><%- products.name %> </p>
 								<i class="fas fa-truck"></i>
 							</div>
 							</div>
@@ -93,16 +93,16 @@
 					<% enOferta.forEach(producto => { %>
 						<div class="col-12 col-md-6 col-lg-3">
 							<div class="contenido">
-								<a href="products/detail/<%- producto.id %> ">	
+								<a href="products/detail/<%- product.id %> ">	
 									<div>
-										<img src="/images/productos/<%- producto.image %>" alt="Imagen del producto">
+										<img src="<%- images %>" alt="Imagen del producto">
 										</div>
 									<div class="datos">
-										<h3>$<%- producto.price - (producto.price / 100 * producto.discount) %> </h3>
-										<% if (producto.discount > 0) { %>
-											<span><%- producto.discount %> % OFF</span>
+										<h3>$<%-products.price - (products.price / 100 * products.discount) %> </h3>
+										<% if (products.discount > 0) { %>
+											<span><%-products.discount%> % OFF</span>
 										<% } %>
-										<p><%- producto.name %> </p>
+										<p><%-products.name%> </p>
 										<i class="fas fa-truck"></i>
 									</div>
 									</div>
@@ -111,60 +111,6 @@
 					  <% }) %>
 						</section>
 					  
-					<!-- <div>
-						<img src="/images/productos/MODULO SENSOR DE SONIDO MICROFONO REGULABLE ARDUINO.jpg" alt="">
-					</div>
-				  <div class="datos">
-					<h3>$210,40</h3>
-					<span>40% OFF</span>
-					<p>MODULO SENSOR DE SONIDO MICROFONO REGULABLE ARDUINO</p>
-					<i class="fas fa-truck"></i>
-				  </div>
-				</div>
-			  </div>
-			  <div class="col-12 col-md-6 col-lg-3">
-				<div class="contenido">
-					<div>
-						<img src="images/productos/MINI SERVO TOWER PRO SG92 2.5KG TORQUE ARDUINO.jpg" alt="">
-					</div>
-				  <div class="datos">
-					<h3>$604,35</h3>
-					<span>10% OFF</span>
-					<p>MINI SERVO TOWER PRO SG92 2.5KG TORQUE ARDUINO</p>
-					<i class="fas fa-truck "></i>
-				  </div>
-				</div>
-			  </div>
-			  <div class="col-12 col-md-6 col-lg-3">
-				<div class="contenido">
-					<div>
-						<img src="images/productos/PACK 50 LEDS 3MM ROJOS AMARILLOS VERDES AZUL BLANCO.jpg" alt="">
-					</div>
-				  <div class="datos">
-					<h3>$366,83</h3>
-					<span>30% OFF</span>
-					<p>PACK 50 LEDS 3MM ROJOS AMARILLOS VERDES AZUL BLANCO</p>
-					<i class="fas fa-truck "></i>
-				  </div>
-				</div>
-			  </div>
-			  <div class="col-12 col-md-6 col-lg-3">
-				<div class="contenido">
-					<div>
-						<img src="/images/productos/DISPLAY LCD 1602 HD44780 FONDO AZUL TEXTO BLANCO 16X2.jpg" alt="">
-					</div>
-				  <div class="datos">
-					<h3>$454,13</h3>
-					<span>10% OFF</span>
-					<p>DISPLAY LCD 1602 HD44780 FONDO AZUL TEXTO BLANCO 16X2</p>
-					<i class="fas fa-truck "></i>
-				  </div>
-				</div>
-			  </div>
-			</div>
-		  </section>
- -->
-
 
 	<!-- CATEGORIAS -->
 

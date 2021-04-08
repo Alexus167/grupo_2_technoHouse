@@ -23,21 +23,12 @@ module.exports = {
 				return res.render('products',{
 			products,
 			})
-		/* 
-			/*toThousand,*/
-		//}); */
+
 		});
 		},
 
 	// Detail - Detail from one product
 	detail : (req, res) => {
-		/* const id=req.params.productId;
-
-		const producto=productos.find(producto => {
-			return producto.id===+id */
-		/* const producto = productos.find(producto =>{
-			return producto.id == req.params.id
-		});	 */
 		
 		db.products.findOne({
 			where : {
@@ -46,7 +37,8 @@ module.exports = {
 			include : [
 				{
 					association : 'category'
-				}
+				},
+					{association : 'image'}
 			]
 		})
 		.then(product => {
@@ -69,21 +61,15 @@ module.exports = {
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		/* let lastID = 1;
-		productos.forEach(producto => {
-			if (producto.id>lastID) {
-				lastID=producto.id
-			}
-		});
-		*/
-		const {name, description, price, discount, category}=req.body
+		const {name, description, price, discount, category, images}=req.body
 
 		db.products.create({
 			name,
 			price,
 			description,
 			discount,
-			categories_id : category
+			categories_id : category,
+			images
 		})
 		.then(newProduct => {
 			res.redirect('/products');
@@ -211,11 +197,4 @@ module.exports = {
 		})
 		.catch(error => res.send(error))
 	}
-	/* const buscar = req.query.search
-
-		const resultado = productos.filter(producto=>{
-			return producto.name.includes(buscar)
-		})
-
-		res.render */
 }

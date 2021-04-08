@@ -116,7 +116,6 @@ module.exports={
         setUsers(users);
         
       },
-
       edit: (req, res) => {
 
         let user = db.user.findByPk(req.params.id)
@@ -130,7 +129,6 @@ module.exports={
          })
         .catch(error => res.send(error)) 
       },
-
       update: (req, res) => {
 
         const {firstName, lastName, email, password, adresses_id, cards_id}=req.body
