@@ -1,19 +1,39 @@
 const db = require('../database/models');
-const {getProducts}=require('../data/productos')
-const productos=getProducts()
+const { getProducts } = require('../data/productos');
+const { Op, Sequelize } = require('sequelize');
 
-module.exports= {
+const productos = getProducts()
+
+module.exports = {
   index: (req, res) => {
-    const enOferta = productos.filter((product) => {
-      return product.category === 'arduino'
+    let visitados = db.Product.findAll({
+      limit: 4,
+      order: Sequelize.literal('rand()'),
+      include: [
+        { association: 'images' }
+      ]
     });
-    const visitados = productos.filter((product) => {
-      return product.category === 'modulos'
-    });
-    res.render('home', {
-      enOferta,
-      visitados,
-    });
+    let enOferta = db.Product.findAll({
+      limit: 4,
+      where: {
+        discount: {
+          [Op.gt]: 10
+        }
+      },
+      include: [
+        { association: 'images' }
+      ]
+
+
+    })
+    Promise.all([visitados, enOferta])
+      .then(([visitados, enOferta]) => {
+        return res.render('home', {
+          enOferta,
+          visitados,
+        });
+      })
+      .catch(error => console.log(error));
   },
   show: (req, res) => {
     let productos = productos.find(product => {
@@ -37,36 +57,36 @@ module.exports= {
     })
   },
 
-    cart: (req,res)=> {
-      res.render('cart', {
-        title: "Carrito"
-      })
-      },
-    shipping: (req,res)=> {
-      res.render('shipping', {
-          title: "envio"
-      })
-    },
-    productDetails: (req,res)=> {
-      res.render('productDetails', {
-        title: "Informacion del producto"
-      })
-    },
-  
-    productAdd: (req, res) => {
-      res.render('productAdd', {
-        title: 'Administracion',
-      })
-    }, 
+  cart: (req, res) => {
+    res.render('cart', {
+      title: "Carrito"
+    })
+  },
+  shipping: (req, res) => {
+    res.render('shipping', {
+      title: "envio"
+    })
+  },
+  productDetails: (req, res) => {
+    res.render('productDetails', {
+      title: "Informacion del producto"
+    })
+  },
 
-    formularioPago: (req, res) => {
-      res.render('formularioPago', {
-        title: 'Formulario', 
-      })
-    },
+  productAdd: (req, res) => {
+    res.render('productAdd', {
+      title: 'Administracion',
+    })
+  },
 
-  
-    
+  formularioPago: (req, res) => {
+    res.render('formularioPago', {
+      title: 'Formulario',
+    })
+  },
+
+
+
 }
 
 
