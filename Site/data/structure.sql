@@ -1,0 +1,1 @@
+productsSELECT * FROM fraveginoc5.images;categories
