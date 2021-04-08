@@ -65,7 +65,7 @@
 					<div class="contenido">
 						<a href="products/detail/<%-product.id%>">	
 							<div>
-								<img src="<%- images %> " alt="Imagen del producto">
+								<img src="<%-images.file%>" alt="Imagen del producto">
 								</div>
 							<div class="datos">
 								<h3>$<%- products.price - (products.price / 100 * products.discount) %> </h3>
@@ -95,7 +95,7 @@
 							<div class="contenido">
 								<a href="products/detail/<%- product.id %> ">	
 									<div>
-										<img src="<%- images %>" alt="Imagen del producto">
+										<img src="<%-images.file%>" alt="Imagen del producto">
 										</div>
 									<div class="datos">
 										<h3>$<%-products.price - (products.price / 100 * products.discount) %> </h3>
