@@ -24,13 +24,13 @@
                   <h2 class="text1">¡Hola! Completá tus datos </h2>
                   <form action="/users/registro" method="POST" enctype="multipart/form-data">
                       <div>
-                    <input type="text" placeholder="Nombre" class="nombre"  name="firstName">
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "" %> </span>
+                    <input type="text" placeholder="Nombre" class="nombre"  name="name">
+                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name)?errores.name.msg : "" %> </span>
                   </div>
 
                   <div>
-                    <input type="text" placeholder="Apellido" class="apellido" name="lastName"> 
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "El campo nombre es requerido" %> </span>
+                    <input type="text" placeholder="Apellido" class="apellido" name="lastname"> 
+                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.lastname)?errores.lastname.msg : "El campo nombre es requerido" %> </span>
                 </div>
 
                 <div>
@@ -39,7 +39,7 @@
                 </div>
 
                 <div>
-                    <input type="password" placeholder="Contraseña" class="pass" name="password">
+                    <input type="password" placeholder="Contraseña" class="password" name="password">
                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "El campo contraseña es requerido y debe tener entre 6 y 12 caracteres" %> </span>
                 </div>
 

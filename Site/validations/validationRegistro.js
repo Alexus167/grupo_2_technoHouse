@@ -4,12 +4,12 @@ const { getUsers} = require('../data/users');
 let users = getUsers();
 
 module.exports = [
-    check('first_name')
+    check('name')
     .isLength({
-        min:4, max:12
+        min:2, max:12
     }).notEmpty().withMessage('Debe ingresar un nombre valido'),
-    check('last_name').notEmpty().withMessage('Debe ingresar su apellido'),
-    check('pass')
+    check('lastname').notEmpty().withMessage('Debe ingresar su apellido'),
+    check('password')
     .isLength({
         min:4, max:12
     }).notEmpty().withMessage('La contraseña debe tener más de 4 caracteres y menos de 12 caracteres'),
