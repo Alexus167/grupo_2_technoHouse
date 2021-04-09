@@ -21,7 +21,7 @@ module.exports = [
     
         check('image')
         .custom((value,{req})=>{
-            if(req.files[0]){
+            if(req.images[0]){
                 return true;
             }else{
                 return false;
@@ -29,7 +29,7 @@ module.exports = [
     
         }).withMessage('La imagen es requerida')
         .custom((value,{req})=>{
-            if(req.files[0].file.match(/(.jpg|.jpeg|.png|.gif|.webp)$/i)){
+            if(req.images[0].file.match(/(.jpg|.jpeg|.png|.gif|.webp)$/i)){
                 return true
             }else{
                 return false
