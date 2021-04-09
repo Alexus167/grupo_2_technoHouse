@@ -17,5 +17,23 @@ module.exports = [
             min: 20
         }).withMessage('La descripción debe tener un minimo de 20 caracteres'),
 
-        check('price').notEmpty()
+        check('price').notEmpty(),
+    
+        check('image')
+        .custom((value,{req})=>{
+            if(req.files[0]){
+                return true;
+            }else{
+                return false;
+            }
+    
+        }).withMessage('La imagen es requerida')
+        .custom((value,{req})=>{
+            if(req.files[0].file.match(/(.jpg|.jpeg|.png|.gif|.webp)$/i)){
+                return true
+            }else{
+                return false
+            }
+        })
+        .withMessage('La imagen tiene que ser de tipo: jpg, jpeg, png, gif o webp')    
 ]
