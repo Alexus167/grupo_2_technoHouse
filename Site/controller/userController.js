@@ -1,14 +1,7 @@
-const fs = require('fs');
-const path = require('path');
+const db = require('../database/models');
 const bcrypt = require('bcrypt');
-const multer = require('multer');
 const { validationResult } = require('express-validator');
 
-
-const users = getUsers();
-
-
-const db = require('../database/models');
 
 
 
@@ -20,7 +13,57 @@ module.exports = {
     })
   },
   processIniciar: (req, res) => {
-    let errors = validationResult(req);
+    let errores = validationResult(req);
+        const { email, password, recordar } = req.body;
+
+        if (!errores.isEmpty()) {
+            return res.render('iniciar', {
+                errores: errores.mapped(),
+                data: req.body
+            })
+        } else {
+
+            db.User.findOne({
+                where: {
+                    email
+                }
+            })
+            .then((user) => {
+                if (user && bcrypt.compareSync(password.trim(), user.password)) {
+                    req.session.user = {
+                        id: user.id,
+                        name: user.name,
+                        lastname: user.lastname,
+                        email: user.email,
+                        perfil: user.avatar,
+                        rol: user.rol,
+                        addresses: user.addressId
+                    }
+                    if (recordar) {
+                        res.cookie('user', req.session.user, {
+                            maxAge: 1000 * 60 * 60 * 24 * 100000
+                        })
+                    }
+                    return res.redirect('/users/perfil')
+
+                } else {
+                    return res.render('iniciar', {
+                        errors: {
+                            pass: {
+                                msg: 'Credenciales inválidas'
+                            }
+                        },
+                        data: req.body
+
+                    })
+                }
+            })
+            .catch(error => res.send(error))
+        }
+    },
+
+
+   /*  let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
       return res.render('iniciar', {
@@ -29,12 +72,12 @@ module.exports = {
     }
     const { email, pass, recordar } = req.body;
 
-    let result = users.find(user => user.email === email.trim())
+    let result = users.find(users => user.email === email.trim())
 
     if (result) {
       if (bcrypt.compareSync(pass.trim(), result.pass)) {
 
-        req.session.user = {
+        req.session.users = {
           id: result.id,
           email: result.email
         }
@@ -55,28 +98,28 @@ module.exports = {
           msg: "Datos incorrectos"
         }
       }
-    })
-
-  },
+    }) 
+  }, */
   registro: (req, res) => {
     res.render('registro', {
       title: 'registro'
     })
   },
   processRegistro: (req, res) => {
-    let errors = validationResult(req);
+     let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      const { name, lastname, email, password } = req.body;
-      let passHash = bcrypt.hashSync(password.trim(), 12)
+        var perfil = req.files[0].filename;
 
+        const { name, lastname, email, password} = req.body;
+        let passHash = bcrypt.hashSync(password.trim(), 12);
 
-      db.users.create({
-        firstName: firstName.trim(),
-        lastName: lastName.trim(),
-        email: email.trim(),
-        password: passHash,
-
+      db.User.create({
+        name : name.trim(),
+        lastname : lastname.trim(),
+        email : email.trim(),
+        password : passHash,
+        avatar : perfil
       })
         .then(() => res.redirect('/users/iniciar'))
         .catch(error => res.send(error))
@@ -86,10 +129,12 @@ module.exports = {
         old: req.body
       })
     }
-  
-
-
   },
+  perfil: (req, res) => {
+    res.render('perfil', {
+      user : req.locals.user
+    })
+  },  
   edit: (req, res) => {
 
     let user = db.user.findByPk(req.params.id)
@@ -105,13 +150,14 @@ module.exports = {
   },
   update: (req, res) => {
 
-    const { firstName, lastName, email, password, adresses_id, cards_id } = req.body
+    const { name, lastname, email, password,avatar, adresses_id, cards_id } = req.body
 
     db.users.update({
-      firstName,
-      lastName,
+      name,
+      lastname,
       email,
       password,
+      avatar,
       adresses_id,
       cards_id
     },

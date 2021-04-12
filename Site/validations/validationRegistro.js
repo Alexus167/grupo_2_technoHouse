@@ -35,12 +35,12 @@ module.exports = [
         min : 8,
         max : 12
     })
-    .isNumeric({
+    /* .isNumeric({
         min : 1
     })
     .matches(
         /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/,
-        )
+        ) */
     .withMessage('La contraseña debe tener un min de 8 y max 12 caracteres y debe contener al menos una letra mayuscula, un numero y un caracter especial'),
 
     check('avatar')

@@ -22,6 +22,7 @@ module.exports = {
 			.then(products => {
 				return res.render('products',{
 			products,
+			toThousand
 			})
 
 		});
@@ -75,22 +76,7 @@ module.exports = {
 			res.redirect('/products');
 		})
 		.catch(error => res.send(error));
-		/*
-		let producto = {
-			id: lastID + 1,
-			name,
-			description,
-			price,
-			discount,
-			category,
-			image : req.files[0].filename,
-		}
-
-		productos.push(producto);
-		setProdcts(productos); */
-
-		
-	},
+		},
 
 	// Update - Form to edit
 	edit: (req, res) => {
@@ -128,24 +114,6 @@ module.exports = {
 		
 	},
 		
-/* 		const {name, description, price, discount, categories_id, image}=req.body
- */
-		/* productos.forEach(producto => {
-			if (producto.id ===+req.params.id) {
-				if (fs.existsSync(path.join('public','images','productos',producto.image))) {
-					fs.unlinkSync(path.join('public','images','productos',producto.image));
-				}
-				producto.id =+req.params.id;
-				producto.name = name;
-				producto.description = description;
-				producto.price = price;
-				producto.discount = discount;
-				producto.category = category;
-				producto.image	= req.files[0].filename;
-				} */
-					
-
-		/* setProdcts(productos); */
 				
 
 	// Delete - Delete one product from DB
@@ -164,20 +132,6 @@ module.exports = {
 		})	
 		.catch(error => res.send(error));
 	},
-
-	/* 	if (producto.id ===+ req.params.id) {
-
-				if (fs.existsSync(path.join('public','images','productos',producto.image))) {
-					fs.unlinkSync(path.join('public','images','productos',producto.image));
-				}
-				let eliminar = productos.indexOf(producto);
-				productos.splice(eliminar,1)
-			}
-
-			});
-			setProdcts(producto)
-				
-		 */
 
 
 	search : (req,res)=>{

@@ -8,8 +8,8 @@
     </script>
 
     <div class="profile">
-        <h1> <%= user.name + " " + user.lastName %> </h1>
-        <img class= "avatar" src="/images/users/<%=user.profile%>" alt="">
+        <h1><%=user.name%> <%=user.lastname%></h1>
+        <img class= "avatar" src="/images/users/<%=user.avatar%>" alt="">
         <a  href='/user/iniciar'> Cerrar sessión </a>
     </div>
     <%-include("./partials/footer")%>

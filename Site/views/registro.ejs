@@ -25,23 +25,23 @@
                   <form action="/users/registro" method="POST" enctype="multipart/form-data">
                       <div>
                     <input type="text" placeholder="Nombre" class="nombre"  name="name">
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name)?errores.name.msg : "" %> </span>
-                  </div>
+<!--                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name)?errores.name.msg : "El campo nombre es requerido" %> </span>
+ -->                  </div>
 
                   <div>
                     <input type="text" placeholder="Apellido" class="apellido" name="lastname"> 
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.lastname)?errores.lastname.msg : "El campo nombre es requerido" %> </span>
-                </div>
+<!--                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.lastname)?errores.lastname.msg : "El campo apellido es requerido" %> </span>
+ -->                </div>
 
                 <div>
                     <input type="email" placeholder="Email" class="email" name="email">
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "El campo apellido es requerido" %> </span>
-                </div>
+<!--                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "El campo email es requerido" %> </span>
+ -->                </div>
 
                 <div>
                     <input type="password" placeholder="Contraseña" class="password" name="password">
-                    <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "El campo contraseña es requerido y debe tener entre 6 y 12 caracteres" %> </span>
-                </div>
+<!--                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "El campo contraseña es requerido y debe tener entre 6 y 12 caracteres" %> </span>
+ -->                </div>
 
                 <div>
                   <p>Imagen de perfil<input type="file" placeholder="selecciona tu foto de perfil" name="avatar"></p> 
@@ -53,14 +53,14 @@
                       <h1 class="noLogin">¿Estás registrado? <a href="/iniciar"></a>Inicia sesión</h1>
                   
                 </div>
-               <!-- <div class="login">
-                  <h2 class="iniciar">Iniciar cuenta con</h2>
+               <div class="login">
+                  <h2 class="iniciar">Registrar cuenta con</h2>
                   <div class="login-items">
-                    <button class="fb"><i class="fab fa-facebook-f"></i> Acceder con Facebook</button>
-                    <button class="tw"><i class="fab fa-twitter"></i> Acceder con Twitter</button>
-                    <button class="correo"><i class="fab fa-google-plus-g"></i> Acceder con Correo</button> 
+                    <button class="fb"><i class="fab fa-facebook-f"></i> Registrar con Facebook</button>
+                    <button class="tw"><i class="fab fa-twitter"></i> Registrar con Twitter</button>
+                    <button class="correo"><i class="fab fa-google-plus-g"></i> Registrar con Correo</button> 
                   </div> 
-                </div> -->
+                </div>
               </div>
             </div>
           </div>
