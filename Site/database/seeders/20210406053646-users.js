@@ -12,7 +12,7 @@ const users = [...Array(3)].map(user => (
     avatar : faker.image.avatar(),
     rol : "user",
     addressId : faker.random.number({min:1,max:3}),
-    cardsId : faker.random.number({min:1,max:3}),
+    cardId : faker.random.number({min:1,max:3}),
     createdAt : new Date(),
     updatedAt : new Date()
   }

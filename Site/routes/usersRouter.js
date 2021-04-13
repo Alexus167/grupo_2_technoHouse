@@ -18,7 +18,7 @@ router.get('/registro',checkLog, registro);
 router.post('/registro',checkLog, validationRegistro, upload.any(), processRegistro);
 
 /*** EDIT ONE USER ***/ 
-router.get('/perfil',checkLog, perfil);
+router.get('/perfil',checkSession, perfil);
 router.get('/perfil/:id',checkSession, edit); /* GET - Form to SIGN UP */
 router.put('/perfil/:id',checkSession, upload.any(),update); /* PUT - Update in DB */
 

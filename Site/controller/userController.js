@@ -29,7 +29,10 @@ module.exports = {
                 }
             })
             .then((user) => {
-                if (user && bcrypt.compareSync(password.trim(), user.password)) {
+                console.log(password)
+                console.log(user.password)
+                if (user && bcrypt.compareSync(password, user.password)) {
+                  console.log(1);
                     req.session.user = {
                         id: user.id,
                         name: user.name,
@@ -37,6 +40,7 @@ module.exports = {
                         email: user.email,
                         perfil: user.avatar,
                         rol: user.rol,
+                        card: user.cardId,
                         addresses: user.addressId
                     }
                     if (recordar) {
@@ -47,6 +51,7 @@ module.exports = {
                     return res.redirect('/users/perfil')
 
                 } else {
+                  console.log(2);
                     return res.render('iniciar', {
                         errors: {
                             pass: {
@@ -131,9 +136,17 @@ module.exports = {
     }
   },
   perfil: (req, res) => {
-    res.render('perfil', {
-      user : req.locals.user
+    db.User.findOne({
+      where: {
+          id : req.session.user.id
+      }
+  })
+  .then(user => {
+     res.render('perfil', {
+      user : user
     })
+  })
+  .catch(error => res.send(error))
   },  
   edit: (req, res) => {
 
@@ -150,7 +163,7 @@ module.exports = {
   },
   update: (req, res) => {
 
-    const { name, lastname, email, password,avatar, adresses_id, cards_id } = req.body
+    const { name, lastname, email, password, avatar, addressId, cardId } = req.body
 
     db.users.update({
       name,
@@ -158,8 +171,8 @@ module.exports = {
       email,
       password,
       avatar,
-      adresses_id,
-      cards_id
+      addressId,
+      cardId
     },
       {
         where: {
