@@ -30,26 +30,31 @@ module.exports = {
 
 	// Detail - Detail from one product
 	detail : (req, res) => {
-		
-		db.products.findOne({
-			where : {
-				id : req.params.id
-			},
-			include : [
-				{
-					association : 'category'
-				},
-					{association : 'image'}
-			]
-		})
-		.then(product => {
-			return res.render('productDetails',{
-			product,
-			toThousand,
-			title:'detalles de producto',
-		});	
-		});
-		},
+		const { id } = req.params;
+        let product = db.Product.findOne({
+            where: {
+                id: +id,
+            },
+            include: [
+                {
+                    association: "category",
+                },
+                {
+                    association: "image",
+                },
+            ],
+        });
+
+        Promise.all([product, aleatorio]).then(([product, aleatorio]) => {
+            res.render("productDetails", {
+                product: product,
+                aleatorio: aleatorio,
+            });
+        })
+		.catch(error => res.send(error));
+	},
+	
+
 
 	// Create - Form to create
 	create: (req, res) => {
@@ -69,7 +74,7 @@ module.exports = {
 			price,
 			description,
 			discount,
-			categories_id : category,
+			categoryId : category,
 			images
 		})
 		.then(newProduct => {
@@ -94,14 +99,14 @@ module.exports = {
 	// Update - Method to update
 	update: (req, res) => {
 
-		const {name, description, price, discount, categories_id}=req.body
+		const {name, description, price, discount, category}=req.body
 
 		db.products.update({
 			name,
 			price,
 			description,
 			discount,
-			categories_id
+			category : categoryId
 		},
 		{
 			where : {
@@ -135,20 +140,19 @@ module.exports = {
 
 
 	search : (req,res)=>{
-
-		db.products.findAll({
-			where : {
-				title : {
-					[Op.like] : `%${req.query.search}%`
-				}
-			}
-		})
-		.then(resultado => {
-			return res.render('products',{
-			title: 'Resultado de la busqueda',
-			productos : resultado,
-		});
-		})
-		.catch(error => res.send(error))
-	}
+		productos = db.Product.findAll({
+            where: {
+                [Op.or]: [
+                    { name: { [Op.substring]: `%${req.query.search}%` } },
+                    { categoryId: { [Op.substring]: `%${req.query.search}%` } },
+                ],
+            },
+        });
+        Promise.all([productos]).then(([productos]) => {
+            res.render("search", {
+                productos,
+                title: "Resultado de la busqueda",
+            });
+        });
+    },
 }

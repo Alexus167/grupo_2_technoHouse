@@ -55,7 +55,7 @@ module.exports = {
                     return res.render('iniciar', {
                         errors: {
                             pass: {
-                                msg: 'Credenciales inválidas'
+                                msg: 'Datos Incorrectos'
                             }
                         },
                         data: req.body
@@ -68,43 +68,6 @@ module.exports = {
     },
 
 
-   /*  let errors = validationResult(req);
-
-    if (!errors.isEmpty()) {
-      return res.render('iniciar', {
-        errors: errors.mapped()
-      })
-    }
-    const { email, pass, recordar } = req.body;
-
-    let result = users.find(users => user.email === email.trim())
-
-    if (result) {
-      if (bcrypt.compareSync(pass.trim(), result.pass)) {
-
-        req.session.users = {
-          id: result.id,
-          email: result.email
-        }
-
-        if (recordar) {
-          res.cookie('user', req.session.user, {
-            maxAge: 1000 * 60 * 60 * 24 * 7 * 30
-
-          })
-        }
-
-        return res.redirect('/products')
-      }
-    }
-    res.render('iniciar', {
-      errors: {
-        error: {
-          msg: "Datos incorrectos"
-        }
-      }
-    }) 
-  }, */
   registro: (req, res) => {
     res.render('registro', {
       title: 'registro'
