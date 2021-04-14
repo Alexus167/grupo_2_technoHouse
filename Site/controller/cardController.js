@@ -18,7 +18,7 @@ module.exports = {
             ]
         })
         .then(cards => {
-            return res.render('formularioPago',{
+            return res.render('payform',{
                 cards
             })
         })
@@ -27,7 +27,7 @@ module.exports = {
     create: (req, res) => {
 		db.users.findAll()
 		.then(users => {
-			res.render('formularioPago');
+			res.render('payform');
 		})
 		.catch(error => res.send(error));
 	},
@@ -40,7 +40,7 @@ module.exports = {
 			securityCode
 		})
 		.then(newProduct => {
-			res.redirect('/formularioPago');
+			res.redirect('/payform');
 		})
 		.catch(error => res.send(error));
 		},
@@ -54,7 +54,7 @@ module.exports = {
                     }
                 })
                 .then(result => {
-                    res.redirect('/formularioPago');
+                    res.redirect('/payform');
                 });
             })	
             .catch(error => res.send(error));

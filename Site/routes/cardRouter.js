@@ -7,16 +7,16 @@ const checkSession = require('../middlewares/checkSession');
 // ************ Controller Require ************
 const {root, detail, create, store, edit, update, destroy} = require('../controller/cardController');
 
-router.get('/formularioPago', root); /* GET - All products */
-router.get('/formularioPago/:id', detail); /* GET - Product detail */
+router.get('/payform', root); /* GET - All products */
+router.get('/payform/:id', detail); /* GET - Product detail */
 
 /*** CREATE ONE PRODUCT ***/ 
-router.get('/formularioPago/create',checkSession, create); /* GET - Form to create */
-router.post('/formularioPago/store',checkSession, upload.any(),store); /* POST - Store in DB */
+router.get('/payform/create',checkSession, create); /* GET - Form to create */
+router.post('/payform/store',checkSession, upload.any(),store); /* POST - Store in DB */
 
 
 /*** DELETE ONE PRODUCT***/ 
-router.delete('/formularioPago/delete/:id',checkSession, destroy); /* DELETE - Delete from DB */
+router.delete('/payform/delete/:id',checkSession, destroy); /* DELETE - Delete from DB */
 
 
 module.exports = router;
