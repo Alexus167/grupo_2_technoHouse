@@ -45,7 +45,26 @@ module.exports = {
     });
   },
   search: (req, res) => {
+
     const buscar = req.query.buscar;
+
+    const resultado = db.Product.findAll({
+      order: Sequelize.literal('rand()'),
+      include: [
+        { association: 'images' },
+        { association: 'categories' }
+      ]
+      })
+      Promise.all([buscar, resultado])
+      .then(([buscar, resultado]) => {
+        return res.render('home', {
+          buscar,
+          resultado,
+        });
+      })
+      .catch(error => console.log(error));
+  },
+   /*  const buscar = req.query.buscar;
 
     const resultado = productos.filter(product => {
       return product.category.includes(buscar)
@@ -55,7 +74,7 @@ module.exports = {
       title: "Resultado de la búsqueda",
       productos: resultado
     })
-  },
+  }, */
 
   cart: (req, res) => {
     res.render('cart', {

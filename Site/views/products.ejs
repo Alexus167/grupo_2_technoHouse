@@ -28,10 +28,10 @@
                   </li>
                   <li class="list-group-item">
                     <p class="categoria">Categoria</p>
-                    <h5 class="button type4"> <%= producto.category %></h5>
+                    <h5 class="button type4"> <%= producto.category.name %></h5>
                   </li>
 
-                  <li class="list-group-item"><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal -<%= producto.id %> "><%= producto.image%></a></li> 
+                  <li class="list-group-item"><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal -<%= producto.id %> "><%=producto.images[0].file%></a></li> 
                     
                   <li class="list-group-item">
                     <div class="m-2 d-flex justify-content-around">
@@ -51,11 +51,11 @@
                 <div class="modal-dialog modal-dialog-centered">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h6 class="modal-title" id="exampleModalLabel"><%= producto.name %> - <%= producto.category %> </h6>
+                      <h6 class="modal-title" id="exampleModalLabel"><%= producto.name %> - <%= producto.category.name %> </h6>
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <img src="/images/<%= producto.img %> " class="img-fluid" alt="">
+                      <img src="/images/<%=producto.images[0].file%> " class="img-fluid" alt="">
                     </div>
                   </div>
                 </div>

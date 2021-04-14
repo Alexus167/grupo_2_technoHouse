@@ -50,11 +50,11 @@
 				  </div>
 				</div>
 				<!-- Controls -->
-				<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+				<a class="carousel-control-prev" href="<%=product.images[0].file%>" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 					<span class="sr-only">Previous</span>
 					</a>
-					  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+					  <a class="carousel-control-next" href="<%=product.images[0].file%>" role="button" data-slide="next">
 					<span class="carousel-control-next-icon" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 					</a>
@@ -70,7 +70,7 @@
         <div class="container">
             <div class="row">
                 <div class="titulo col-12">
-                <h3>Descripcion</h3>
+                <h3><%=product.name%></h3>
                 </div>
                 <div class="informacion col-12">
                 <p><%=product.description%> .</p>
@@ -80,15 +80,15 @@
             </div>
             <div class="centro col-6">
                     <div class="stars">
-                    <input type="radio" id="five" name="rate" value="5">
+                    <input type="radio" id=5 name="rate" value="5">
                     <label for="five"></label>
-                    <input type="radio" id="four" name="rate" value="4">
+                    <input type="radio" id=4 name="rate" value="4">
                     <label for="four"></label>
-                    <input type="radio" id="three" name="rate" value="3">
+                    <input type="radio" id=3 name="rate" value="3">
                     <label for="three"></label>
-                    <input type="radio" id="two" name="rate" value="2">
+                    <input type="radio" id=2 name="rate" value="2">
                     <label for="two"></label>
-                    <input type="radio" id="one" name="rate" value="1">
+                    <input type="radio" id=1 name="rate" value="1">
                     <label for="one"></label>
                     <span class="result"></span>
                     </div>

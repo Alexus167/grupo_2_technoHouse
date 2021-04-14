@@ -30,31 +30,23 @@ module.exports = {
 
 	// Detail - Detail from one product
 	detail : (req, res) => {
-		const { id } = req.params;
-        let product = db.Product.findOne({
+		db.Product.findOne({
             where: {
-                id: +id,
+                id: req.params.id
             },
             include: [
-                {
-                    association: "category",
-                },
-                {
-                    association: "image",
-                },
-            ],
-        });
-
-        Promise.all([product, aleatorio]).then(([product, aleatorio]) => {
+				{association: 'images'},
+                {association: 'category'}]
+        })
+        .then(product => {
             res.render("productDetails", {
-                product: product,
-                aleatorio: aleatorio,
-            });
+                product
+            })
         })
 		.catch(error => res.send(error));
-	},
-	
 
+       
+    },
 
 	// Create - Form to create
 	create: (req, res) => {
@@ -140,19 +132,22 @@ module.exports = {
 
 
 	search : (req,res)=>{
-		productos = db.Product.findAll({
+	let productos = db.Product.findAll({
             where: {
                 [Op.or]: [
-                    { name: { [Op.substring]: `%${req.query.search}%` } },
-                    { categoryId: { [Op.substring]: `%${req.query.search}%` } },
-                ],
+                    { name: { [Op.substring]: req.query.search } }
+                ]
             },
+			include: [
+				{association: 'images'},
+                {association: 'category'}]
         });
         Promise.all([productos]).then(([productos]) => {
-            res.render("search", {
+            res.render("products", {
                 productos,
                 title: "Resultado de la busqueda",
             });
-        });
+        })
+		.catch(error => res.send(error));
     },
 }
