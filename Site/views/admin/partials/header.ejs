@@ -1,0 +1,42 @@
+<header>
+  <div class="container-fluid">
+    <div class="row justify-content-end">
+      <div class="box-logo col-12 col-md-3 col-lg-3" id="logoA">
+        <a href="/">
+          <img class="logo" src="/images/logoTechnoHouse.png" alt="" />
+        </a>
+      </div>
+
+      <div class=" form-nav col-12 col-md-8 col-lg-5">
+        <form action="/products/search" id="form" method="GET">
+          <input type="search" placeholder="Buscar productos, marcas y más" name="search" />
+          <button type="submit">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </div>
+
+      <div class=" botones-nav col-12 col-md-8 col-lg-4">
+        <a href="/cart">
+          <button class="btn btn-outline-light">
+            Carrito <i class="fas fa-cart-plus"></i></button></a>
+        
+            <% if (typeof user != 'undefined') { %>
+              <a href="/users/logout">
+                <button class="btn btn-outline-light">
+                  Logout <i class="fas fa-address-card"></i></button></a>
+            <% } else { %>
+              <a href="/users/iniciar">
+                <button class="btn btn-outline-light">
+                  Ingresá <i class="fas fa-address-card"></i></button></a>
+              <%  } %>
+
+        <a href="/">
+          <button class="btn btn-outline-light">
+            Guardado <i class="fas fa-heart"></i></button></a>
+
+
+      </div>
+    </div>
+  </div>
+</header>

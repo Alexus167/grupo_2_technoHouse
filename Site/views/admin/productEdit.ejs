@@ -6,7 +6,7 @@
 <body>
     <%- include('partials/header') %>
     <section>
-     <form action="/products/update/<%- product.id %>?_method=PUT">                        >
+     <form action="/products/update/<%- product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">                        >
  
         <div class="col-12">
             <h2 class="products-title"><%= product.name %>
@@ -71,7 +71,7 @@
                                       >
                                    
                                       <% categories.forEach(category => { %>
-                                        <option <%- product.category_id == category.id ? "selected" : null%> value="<%= category.id %> "><%= category.name %> </option>
+                                        <option <%- product.categoryId == category.id ? "selected" : null%> value="<%= category.id %> "><%= category.name %> </option>
                                     <% }) %>
                                 </select> 
                             </div>
@@ -79,7 +79,7 @@
                             <div class="desc-op">
                                 <label for="description" class="form-label">Descipción:</label>
 						<textarea name="description" id="description" class="form-input" value="<%- product.description %>"
-              ></textarea>
+              ><%- product.description %></textarea>
                             </div>
     
                             <div class="row">
@@ -97,21 +97,6 @@
                             </div>
 
                             
-    
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div>
-                                        <label for="sub-category" class="form-label">Sub-Categoría:</label>
-            
-                                        <select name="sub-category" id="sub-category">
-                                            <option selected disabled >Elegi</option>
-                                            <option value="oferta">Ofertas</option>
-                                            <option value="nuevo">Nuevos</option>
-                                            <option value="promo">Promo</option>
-                                        </select>
-                                    </div>
-                            </div>
-                        </div>
     
                             <div class="row" id="botones">
                                 <div class="col-md-12">

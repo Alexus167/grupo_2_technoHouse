@@ -13,9 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Product.belongsTo(models.Category,{
         as : "category"
-      }),
-      Product.hasMany(models.Image,{
-        as : 'images'
       })
     }
   };
@@ -24,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING,
     price: DataTypes.INTEGER,
     discount: DataTypes.INTEGER,
+    image: DataTypes.STRING,
     categoryId: DataTypes.INTEGER
   }, {
     sequelize,

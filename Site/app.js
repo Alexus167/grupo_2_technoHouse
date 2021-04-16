@@ -13,9 +13,12 @@ const usersRouter = require('./routes/usersRouter');
 const productRouter = require('./routes/productRouter');
 const categoryRouter = require('./routes/categoryRouter');
 const cardRouter = require('./routes/cardRouter');
+/* const adminRouter = require('./routes/adminRouter'); */
 
-var cookieCheck = require('./middlewares/cookieCheck');
+
+let cookieCheck = require('./middlewares/cookieCheck');
 let checkLocals = require('./middlewares/checkLocals');
+
 
 const app = express();
 
@@ -34,6 +37,7 @@ app.use(session({secret : "TechnoHouse it's alive!"}));
 app.use(cookieCheck);
 app.use(checkLocals);
 
+
 /* RUTAS */ 
 
 app.use('/', indexRouter);
@@ -41,6 +45,7 @@ app.use('/users', usersRouter);
 app.use('/products', productRouter);
 app.use('/categories', categoryRouter);
 app.use('/cards', cardRouter);
+/* app.use('/admin', adminRouter); */
 
 
 // catch 404 and forward to error handler

@@ -10,34 +10,32 @@
 
     <div class="container">
         <h1 class="titulo">Listado de Productøs</h1>
-      
+
         <section class="row ">
-            <% productos.forEach(producto=> { %>
+            <% usuarios.forEach(usuarios=> { %>
               <article class="col-12 col-md-4 col-lg-3 ">
                 <ul class="list-group list-group-flush my-3 ">
-                  <img src="/images/productos/<%=producto.image%> " class="img-fluid" alt="">
                   <li class="list-group-item">
-                    <h4 class="nameProducto">
-                      <%= producto.name %>
+                    <h4 class="nameUsuario">
+                      Nombre <%= users.name %>
                     </h4>
                   </li>
       
                   <li class="list-group-item">
                     <h6 class="precioF">
-                     Precio final $<%= producto.price %>
+                     Apellido $<%= users.lastname %>
                     </h6>
                   </li>
-                  <!-- <li class="list-group-item">
-                    <p class="categoria">Categoria</p>
-                    <h5 class="button type4"> <%= producto.category.name %></h5>
-                  </li> -->
+                  <li class="list-group-item">
+                    <p class="rol">Rol</p>
+                    <h5 class="button type4"> <%= user.rol %></h5>
+                  </li>
 
-<!--                   <li class="list-group-item"><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal -<%= producto.id %> "><%=producto.image%></a></li> 
- -->                      
-
+                  <li class="list-group-item"><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal -<%= producto.id %> "><%=user.images[0].file%></a></li> 
+                    
                   <li class="list-group-item">
                     <div class="m-2 d-flex justify-content-around">
-                      <form action="/products/edit/<%= producto.id %>">
+                      <form action="/admin/edit/<%= users.id %>">
                         <button class="btn btn-sm btn-success" type="submit">Editar</a></button> 
                       </form>
                       <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
@@ -57,7 +55,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <img src="/images/productos/<%=producto.image%> " class="img-fluid" alt="">
+                      <img src="/images/<%=producto.images[0].file%> " class="img-fluid" alt="">
                     </div>
                   </div>
                 </div>

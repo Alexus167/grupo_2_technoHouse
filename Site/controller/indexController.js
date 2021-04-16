@@ -9,9 +9,6 @@ module.exports = {
     let visitados = db.Product.findAll({
       limit: 4,
       order: Sequelize.literal('rand()'),
-      include: [
-        { association: 'images' }
-      ]
     });
     let enOferta = db.Product.findAll({
       limit: 4,
@@ -20,9 +17,6 @@ module.exports = {
           [Op.gt]: 10
         }
       },
-      include: [
-        { association: 'images' }
-      ]
 
 
     })
@@ -51,7 +45,6 @@ module.exports = {
     const resultado = db.Product.findAll({
       order: Sequelize.literal('rand()'),
       include: [
-        { association: 'images' },
         { association: 'categories' }
       ]
       })

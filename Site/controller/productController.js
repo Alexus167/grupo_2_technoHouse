@@ -14,14 +14,16 @@ const {Op} = require('sequelize');
 module.exports = {
 	// Root - Show all products
 	root: (req, res) => {
-			db.products.findAll({
+			db.Product.findAll({
 				order : [
-					['title','ASC']
+					['name','ASC']
 				],
+				include: [
+					{association: 'category'}]
 			})
-			.then(products => {
+			.then(productos => {
 				return res.render('products',{
-			products,
+			productos,
 			toThousand
 			})
 
@@ -35,7 +37,6 @@ module.exports = {
                 id: req.params.id
             },
             include: [
-				{association: 'images'},
                 {association: 'category'}]
         })
         .then(product => {
@@ -50,24 +51,24 @@ module.exports = {
 
 	// Create - Form to create
 	create: (req, res) => {
-		db.categories.findAll()
+		db.Category.findAll()
 		.then(categories => {
-			res.render('productAdd');
+			res.render('admin/productAdd');
 		})
 		.catch(error => res.send(error));
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		const {name, description, price, discount, category, images}=req.body
+		const {name, description, price, discount, category, image}=req.body
 
-		db.products.create({
+		db.Product.create({
 			name,
 			price,
 			description,
 			discount,
 			categoryId : category,
-			images
+			image
 		})
 		.then(newProduct => {
 			res.redirect('/products');
@@ -78,12 +79,13 @@ module.exports = {
 	// Update - Form to edit
 	edit: (req, res) => {
 
-		let product = db.products.findByPk(req.params.id)
-		let categories = db.categories.findAll()
+		let product = db.Product.findByPk(req.params.id)
+		let categories = db.Category.findAll()
 		Promise.all([product,categories])
-		.then(product =>{
-		res.render('productEdit',{
-			product
+		.then(([product,categories]) =>{
+		res.render('admin/productEdit',{
+			product,
+			categories
 		});
 	 	})
 		.catch(error => res.send(error)) 
@@ -92,13 +94,13 @@ module.exports = {
 	update: (req, res) => {
 
 		const {name, description, price, discount, category}=req.body
-
-		db.products.update({
+		db.Product.update({
 			name,
 			price,
 			description,
 			discount,
-			category : categoryId
+			categoryId : category,
+			image : req.files ? req.files[0].filename : undefined
 		},
 		{
 			where : {
@@ -115,18 +117,15 @@ module.exports = {
 
 	// Delete - Delete one product from DB
 	destroy: (req, res) => {
-
-		productos.forEach(producto => {
 	
-			db.products.destroy({
+			db.Product.destroy({
 				where : {
 					id : req.params.id
 				}
 			})
 			.then(result => {
 				res.redirect('/products');
-			});
-		})	
+			})
 		.catch(error => res.send(error));
 	},
 
@@ -139,7 +138,6 @@ module.exports = {
                 ]
             },
 			include: [
-				{association: 'images'},
                 {association: 'category'}]
         });
         Promise.all([productos]).then(([productos]) => {

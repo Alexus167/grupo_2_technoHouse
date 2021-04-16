@@ -14,58 +14,62 @@ module.exports = {
   },
   processIniciar: (req, res) => {
     let errores = validationResult(req);
-        const { email, password, recordar } = req.body;
+    const { email, password, recordar } = req.body;
 
-        if (!errores.isEmpty()) {
-            return res.render('iniciar', {
-                errores: errores.mapped(),
-                data: req.body
-            })
-        } else {
+    if (!errores.isEmpty()) {
+      return res.render('iniciar', {
+        errores: errores.mapped(),
+        data: req.body
+      })
+    } else {
 
-            db.User.findOne({
-                where: {
-                    email
-                }
-            })
-            .then((user) => {
-                console.log(password)
-                console.log(user.password)
-                if (user && bcrypt.compareSync(password, user.password)) {
-                  console.log(1);
-                    req.session.user = {
-                        id: user.id,
-                        name: user.name,
-                        lastname: user.lastname,
-                        email: user.email,
-                        perfil: user.avatar,
-                        rol: user.rol,
-                        card: user.cardId,
-                        addresses: user.addressId
-                    }
-                    if (recordar) {
-                        res.cookie('user', req.session.user, {
-                            maxAge: 1000 * 60 * 60 * 24 * 100000
-                        })
-                    }
-                    return res.redirect('/users/perfil')
-
-                } else {
-                  console.log(2);
-                    return res.render('iniciar', {
-                        errors: {
-                            pass: {
-                                msg: 'Datos Incorrectos'
-                            }
-                        },
-                        data: req.body
-
-                    })
-                }
-            })
-            .catch(error => res.send(error))
+      db.User.findOne({
+        where: {
+          email
         }
-    },
+      })
+        .then((user) => {
+          console.log(password)
+          console.log(user.password)
+          if (user && bcrypt.compareSync(password, user.password)) {
+            console.log(1);
+            req.session.user = {
+              id: user.id,
+              name: user.name,
+              lastname: user.lastname,
+              email: user.email,
+              perfil: user.avatar,
+              rol: user.rol,
+              card: user.cardId,
+              addresses: user.addressId
+            }
+            if (recordar) {
+              res.cookie('user', req.session.user, {
+                maxAge: 1000 * 60 * 60 * 24 * 100000
+              })
+            }
+            if (user.rol == 'user') {
+                            return res.redirect('/users/perfil')
+                        } else {
+                            return res.redirect('/admin/adminProfile')
+                        }
+                    } else {
+
+            console.log(2);
+            return res.render('iniciar', {
+              errors: {
+                pass: {
+                  msg: 'Datos Incorrectos'
+                }
+              },
+              data: req.body
+
+            })
+          }
+        })
+        .catch(error => res.send(error))
+    }
+  },
 
 
   registro: (req, res) => {
@@ -74,20 +78,20 @@ module.exports = {
     })
   },
   processRegistro: (req, res) => {
-     let errors = validationResult(req);
+    let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-        var perfil = req.files[0].filename;
+      var perfil = req.files[0].filename;
 
-        const { name, lastname, email, password} = req.body;
-        let passHash = bcrypt.hashSync(password.trim(), 12);
+      const { name, lastname, email, password } = req.body;
+      let passHash = bcrypt.hashSync(password.trim(), 12);
 
       db.User.create({
-        name : name.trim(),
-        lastname : lastname.trim(),
-        email : email.trim(),
-        password : passHash,
-        avatar : perfil
+        name: name.trim(),
+        lastname: lastname.trim(),
+        email: email.trim(),
+        password: passHash,
+        avatar: perfil
       })
         .then(() => res.redirect('/users/iniciar'))
         .catch(error => res.send(error))
@@ -101,16 +105,16 @@ module.exports = {
   perfil: (req, res) => {
     db.User.findOne({
       where: {
-          id : req.session.user.id
+        id: req.session.user.id
       }
-  })
-  .then(user => {
-     res.render('perfil', {
-      user : user
     })
-  })
-  .catch(error => res.send(error))
-  },  
+      .then(user => {
+        res.render('perfil', {
+          user: user
+        })
+      })
+      .catch(error => res.send(error))
+  },
   edit: (req, res) => {
 
     let user = db.user.findByPk(req.params.id)
