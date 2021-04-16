@@ -36,14 +36,27 @@
  -->                      
 
                   <li class="list-group-item">
-                    <div class="m-2 d-flex justify-content-around">
-                      <form action="/products/edit/<%= producto.id %>">
-                        <button class="btn btn-sm btn-success" type="submit">Editar</a></button> 
-                      </form>
-                      <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
-                        <button class="btn btn-sm btn-danger" type="submit">Eliminar</a></button> 
-                      </form>
-                    </div>
+
+                    <% if (typeof user != 'undefined' && user.rol) { %>
+                      <div class="m-2 d-flex justify-content-around">
+                        <form action="/products/edit/<%= producto.id %>">
+                          <button class="btn btn-sm btn-secondary" type="submit">Editar</a></button> 
+                        </form>
+                        <form action="/products/delete/<%= producto.id %>?_method=DELETE" method="POST">
+                          <button class="btn btn-sm btn-danger" type="submit">Eliminar</a></button> 
+                        </form>
+                        <form action="/products/detail/<%= producto.id %>">
+                          <button class="btn btn-sm btn-success" type="submit">Ver más</a></button> 
+                        </form>
+                      </div>
+                    <% } else { %>
+                      <div class="m-2 d-flex justify-content-around">
+                        <form action="/products/detail/<%= producto.id %>">
+                          <button class="btn btn-sm btn-success" type="submit">Ver más</a></button> 
+                        </form>
+                      </div>
+                      <% } %>
+                    
                   </li>
                 </ul>
               </article>
@@ -63,8 +76,12 @@
                 </div>
               </div>
               <% }) %>
+
+              <% if (!productos.length) { %>
+               <h1 class="my-5">No encontramos productos</h1>
+              <% } %>
+
           </section>
-          <a href="/users/logout">Cerrar Sesión</a>
     </div>
     
     <%- include('partials/footer')%>   

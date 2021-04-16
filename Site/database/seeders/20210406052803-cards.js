@@ -1,13 +1,10 @@
 'use strict';
 
-const faker = require('faker');
-const bcrypt = require('bcrypt')
-
 const cards = [...Array(3)].map(card => (
   {
-    userNumber : faker.finance.creditCardNumber(),
-    expirationDate : faker.date.future(),
-    securityCode : bcrypt.hashSync('1231',12),
+    userNumber : 12345678,
+    expirationDate : 2026,
+    securityCode : 1234,
     createdAt : new Date(),
     updatedAt : new Date()
   }
@@ -16,13 +13,13 @@ const cards = [...Array(3)].map(card => (
 module.exports = {
   up: async (queryInterface, Sequelize) => {
    
-      await queryInterface.bulkInsert('cards', cards, {});
+      await queryInterface.bulkInsert('Cards', cards, {});
   
   },
 
   down: async (queryInterface, Sequelize) => {
   
-     await queryInterface.bulkDelete('cards', null, {});
+     await queryInterface.bulkDelete('Cards', null, {});
   
   }
 };

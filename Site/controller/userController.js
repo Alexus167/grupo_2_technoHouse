@@ -48,14 +48,13 @@ module.exports = {
                 maxAge: 1000 * 60 * 60 * 24 * 100000
               })
             }
-            if (user.rol == 'user') {
+            if (!user.rol) {
                             return res.redirect('/users/perfil')
                         } else {
-                            return res.redirect('/admin/adminProfile')
+                            return res.redirect('/')
                         }
                     } else {
 
-            console.log(2);
             return res.render('iniciar', {
               errors: {
                 pass: {
@@ -91,7 +90,8 @@ module.exports = {
         lastname: lastname.trim(),
         email: email.trim(),
         password: passHash,
-        avatar: perfil
+        avatar: perfil,
+        rol: 0,
       })
         .then(() => res.redirect('/users/iniciar'))
         .catch(error => res.send(error))

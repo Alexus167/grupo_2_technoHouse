@@ -52,7 +52,7 @@ h5 {
     margin-bottom: 20px;
     text-align: center;
     transition: transform .5s ease, box-shadow .5s ease;
-    height: 500px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -64,7 +64,7 @@ h5 {
   }
   .productos img {
     width: 100%;
-    margin-top: 50px;
+    margin-top: 20px;
     margin-bottom: 35px;
   }
   .productos .datos {
@@ -229,8 +229,8 @@ h3.titleBack {
 /* RESPONSIVE */
 
 
-@media(max-width: 460px){
+/* @media(max-width: 460px){
   .carousel {
     display: none;
 }
-}
+} */

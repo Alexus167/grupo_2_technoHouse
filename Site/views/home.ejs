@@ -61,14 +61,14 @@
 			  </div>
 			  
 			  <% visitados.forEach(product => { %>
-				<div class="col-12 col-md-6 col-lg-3">
+				<div class="col-12 col-md-6 col-lg-3 py-3">
 					<div class="contenido">
 						<a href="/products/detail/<%=product.id%>">	
 							<div>
-								<img src="<%=product.images[0].file%>" alt="Imagen del producto" class="img-fluid">
+								<img src="/images/productos/<%=product.image%>" alt="Imagen del producto" class="img-fluid">
 								</div>
 							<div class="datos">
-								<h3>$<%= product.price - (product.price / 100 * product.discount) %> </h3>
+								<h3>$<%= (product.price - (product.price / 100 * product.discount)).toFixed(2) %> </h3>
 								<% if (product.discount > 0) { %>
 									<span><%= product.discount %> % OFF</span>
 								<% } %>
@@ -91,14 +91,14 @@
 				<div class="contenido"> -->
 
 					<% enOferta.forEach(product => { %>
-						<div class="col-12 col-md-6 col-lg-3">
+						<div class="col-12 col-md-6 col-lg-3 py-3">
 							<div class="contenido">
 								<a href="/products/detail/<%- product.id %> ">	
 									<div>
-										<img src="<%=product.images[0].file%>" alt="Imagen del producto" class="img-fluid">
+										<img src="/images/productos/<%=product.image%>" alt="Imagen del producto" class="img-fluid">
 										</div>
 									<div class="datos">
-										<h3>$<%=product.price - (product.price / 100 * product.discount) %> </h3>
+										<h3>$<%= (product.price - (product.price / 100 * product.discount)).toFixed(2) %> </h3>
 										<% if (product.discount > 0) { %>
 											<span><%=product.discount%> % OFF</span>
 										<% } %>
@@ -126,19 +126,19 @@
 		<div class="row categorias1">
 
 			<div class="col-12 col-md-6 col-lg-3 back1 caja1">
-				<a href="#" target="_blank"> <h3 class="titleBack">ARDUINO</h3></a>
+				<a href="/products/categories/1"> <h3 class="titleBack">ARDUINO</h3></a>
 			  </div>
 
 			  <div class="col-12 col-md-6 col-lg-3 back2 caja1">
-				<a href="#" target="_blank"> <h3 class="titleBack">MODULOS</h3></a>
+				<a href="/products/categories/2"> <h3 class="titleBack">MODULOS</h3></a>
 			  </div>
 
 			  <div class="col-12 col-md-6 col-lg-3 back3 caja1">
-				<a href="#" target="_blank"> <h3 class="titleBack">SENSORES</h3></a>
+				<a href="/products/categories/3"> <h3 class="titleBack">SENSORES</h3></a>
 			  </div>
 
 			  <div class="col-12 col-md-6 col-lg-3 back4 caja1">
-				<a href="#" target="_blank"> <h3 class="titleBack">ACCESORIOS</h3></a>
+				<a href="/products/categories/4"> <h3 class="titleBack">ACCESORIOS</h3></a>
 			  </div>
 		
 		</div>
@@ -149,20 +149,20 @@
 		<div class="row" id="categorias">
 		  
 			<div class="col-12 col-md-6 col-lg-3 back5 caja1">
-				<a href="#" target="_blank"> <h3 class="titleBack">SERVOS</h3></a>
+				<a href="/products/categories/5"> <h3 class="titleBack">SERVOS</h3></a>
 			  </div>
 	
 		  
 			  <div class="col-12 col-md-6 col-lg-3 back6 caja1">
-				<a href="#" target="_blank"> <h3 class="titleBack">MOTORES</h3></a>
+				<a href="/products/categories/5"> <h3 class="titleBack">MOTORES</h3></a>
 			  </div>
 
 			  <div class="col-12 col-md-6 col-lg-3 back7 caja1">
-				<a href="#" target="_blank"> <h3 class="titleBack">LED</h3></a>
+				<a href="/products/categories/6"> <h3 class="titleBack">LED</h3></a>
 			  </div>
 
 			  <div class="col-12 col-md-6 col-lg-3 back8 caja1">
-				<a href="#" target="_blank"> <h3 class="titleBack">COMPONENTES</h3></a>
+				<a href="/products/categories/7"> <h3 class="titleBack">COMPONENTES</h3></a>
 			  </div>
 		</div>
 	  </section> 

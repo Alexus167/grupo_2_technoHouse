@@ -6,7 +6,7 @@ const upload = require('../utils/multerProducts');
 const checkSession = require('../middlewares/checkSession');
 const validationProducts = require('../validations/validationProducts');
 // ************ Controller Require ************
-const {root, detail, create, store, edit, update, destroy, search} = require('../controller/productController');
+const {root, detail, create, store, edit, update, destroy, search, category} = require('../controller/productController');
 
 router.get('/', root); /* GET - All products */
 router.get('/detail/:id', detail); /* GET - Product detail */
@@ -24,5 +24,7 @@ router.delete('/delete/:id',checkSession, destroy); /* DELETE - Delete from DB *
 
 /*** BUSCADOR ***/
 router.get('/search', search);
+
+router.get('/categories/:id', category)
 
 module.exports = router;

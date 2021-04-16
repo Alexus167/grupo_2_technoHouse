@@ -15,13 +15,13 @@ names.forEach(name => {
 module.exports = {
   up: async (queryInterface, Sequelize) => {
    
-     await queryInterface.bulkInsert('categories', categories, {});
+     await queryInterface.bulkInsert('Categories', categories, {});
     
   },
 
   down: async (queryInterface, Sequelize) => {
   
-    await queryInterface.bulkDelete('categories', null, {});
+    await queryInterface.bulkDelete('Categories', null, {});
     
   }
 };

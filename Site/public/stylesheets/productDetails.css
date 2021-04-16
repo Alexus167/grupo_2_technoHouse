@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 .carrousel {
-  display: none;
+  display: block;
 }
 .carrousel-item img{
     height: 200px;
@@ -78,5 +78,11 @@
 }
 .stars #one:checked ~ .result:before{
   content: "Lo odio 😠";
+}
+
+.detalle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 

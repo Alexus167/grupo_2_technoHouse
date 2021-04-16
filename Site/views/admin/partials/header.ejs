@@ -7,7 +7,7 @@
         </a>
       </div>
 
-      <div class=" form-nav col-12 col-md-8 col-lg-5">
+      <div class=" form-nav col-12 col-md-8 col-lg-4">
         <form action="/products/search" id="form" method="GET">
           <input type="search" placeholder="Buscar productos, marcas y más" name="search" />
           <button type="submit">
@@ -16,7 +16,24 @@
         </form>
       </div>
 
-      <div class=" botones-nav col-12 col-md-8 col-lg-4">
+      <div class=" botones-nav col-12 col-md-8 col-lg-5">
+
+        <% if (typeof user != 'undefined' && user.rol) { %>
+          <div class="dropdown">
+            <button class="btn btn-outline-light dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              admin
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="/products/create">Crear producto</a>
+              <a class="dropdown-item" href="/products">Listar productos</a>
+            </div>
+          </div>
+        <% } %>
+
+        <a href="/products">
+          <button class="btn btn-outline-light">
+            Productos</button></a>
+
         <a href="/cart">
           <button class="btn btn-outline-light">
             Carrito <i class="fas fa-cart-plus"></i></button></a>
@@ -30,10 +47,6 @@
                 <button class="btn btn-outline-light">
                   Ingresá <i class="fas fa-address-card"></i></button></a>
               <%  } %>
-
-        <a href="/">
-          <button class="btn btn-outline-light">
-            Guardado <i class="fas fa-heart"></i></button></a>
 
 
       </div>

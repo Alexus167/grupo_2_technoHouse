@@ -29,7 +29,7 @@ module.exports = {
 
       },
       rol: {
-        type: Sequelize.STRING,
+        type: Sequelize.INTEGER,
       },
       addressId: {
           type: Sequelize.INTEGER,

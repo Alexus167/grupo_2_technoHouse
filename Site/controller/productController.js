@@ -53,14 +53,14 @@ module.exports = {
 	create: (req, res) => {
 		db.Category.findAll()
 		.then(categories => {
-			res.render('admin/productAdd');
+			res.render('admin/productAdd', { categories });
 		})
 		.catch(error => res.send(error));
 	},
 	
 	// Create -  Method to store
 	store: (req, res) => {
-		const {name, description, price, discount, category, image}=req.body
+		const {name, description, price, discount, category}=req.body
 
 		db.Product.create({
 			name,
@@ -68,7 +68,7 @@ module.exports = {
 			description,
 			discount,
 			categoryId : category,
-			image
+			image: req.files[0] ? req.files[0].filename : 'default-img.png'
 		})
 		.then(newProduct => {
 			res.redirect('/products');
@@ -100,7 +100,7 @@ module.exports = {
 			description,
 			discount,
 			categoryId : category,
-			image : req.files ? req.files[0].filename : undefined
+			image : req.files[0] ? req.files[0].filename : undefined
 		},
 		{
 			where : {
@@ -148,4 +148,16 @@ module.exports = {
         })
 		.catch(error => res.send(error));
     },
+		category: (req, res) => {
+			db.Product.findAll({ where : {
+				categoryId: req.params.id
+			}, include: [
+				{association: 'category'}]})
+			.then((productos) => {
+				res.render('products', {
+					productos
+				})
+			})
+			.catch(error => res.send(error));
+		}
 }

@@ -10,7 +10,7 @@ const users = [...Array(3)].map(user => (
     email : faker.internet.email(),
     password : bcrypt.hashSync('123123',12),
     avatar : faker.image.avatar(),
-    rol : "user",
+    rol : 0,
     addressId : faker.random.number({min:1,max:3}),
     cardId : faker.random.number({min:1,max:3}),
     createdAt : new Date(),
@@ -22,13 +22,13 @@ const users = [...Array(3)].map(user => (
 module.exports = {
   up: async (queryInterface, Sequelize) => {
    
-      await queryInterface.bulkInsert('users', users, {});
+      await queryInterface.bulkInsert('Users', users, {});
   
   },
 
   down: async (queryInterface, Sequelize) => {
   
-     await queryInterface.bulkDelete('users', null, {});
+     await queryInterface.bulkDelete('Users', null, {});
   
   }
 };

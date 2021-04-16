@@ -66,16 +66,11 @@
                             <div class="select-category">
                                     <label for="category" class="form-label">Categoría:</label>
                                     <select name="category" id="category" class="form-input">
-                                   
                                     <option selected disabled >Elegir Categoria</option> <!--Agregando 'selected' & 'disabled', en la etiqueta '<option' deshabilitamos la opción de que el usuario la seleccione -->
-                                        
-                                    <option value="1">Arduino</option>
-                                    <option value="2">Modulos</option>
-                                    <option value="3">Sensores</option>
-                                    <option value="4">Accesorios</option>
-                                    <option value="5">Servos y Motores</option>
-                                    <option value="6">Led</option>
-                                    <option value="7">Componentes</option>
+                                    
+                                    <% categories.forEach(cat => { %>
+                                        <option value="<%- cat.id %>"><%- cat.name %></option>
+                                    <% }) %>
                                 </select> 
                             </div>
     
