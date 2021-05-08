@@ -4,7 +4,8 @@
 <%- include('partials/head') %>
 
 <body>
-  <header class="header-inicia">
+  <%- include('partials/header') %>
+ <!--  <header class="header-inicia">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <div class="col-12 text-center">
                   <a href="/">
@@ -13,7 +14,7 @@
                 </div>
                 
      </nav>
-</header>
+</header> -->
 
     <section>
         <div class="container inicia">
@@ -24,27 +25,29 @@
                   <h2 class="text1">¡Hola! Completá tus datos </h2>
                   <form action="/users/registro" method="POST" enctype="multipart/form-data">
                       <div>
-                    <input type="text" placeholder="Nombre" class="nombre"  name="name">
-<!--                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.name)?errores.name.msg : "El campo nombre es requerido" %> </span>
- -->                  </div>
+                    <input type="text" placeholder="Nombre" class="nombre"  name="name" value="<%= (typeof old != 'undefined' && old.name ? old.name : null) %>">
+                    <span class="text-danger"><%= (typeof errors != 'undefined' && errors.name ? errors.name.msg : null) %> </span>
+                  </div>
 
                   <div>
-                    <input type="text" placeholder="Apellido" class="apellido" name="lastname"> 
-<!--                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.lastname)?errores.lastname.msg : "El campo apellido es requerido" %> </span>
- -->                </div>
+                    <input type="text" placeholder="Apellido" class="apellido" name="lastname" value="<%= (typeof old != 'undefined' && old.lastname ? old.lastname : null) %>">
+                    <span class="text-danger"><%= (typeof errors != 'undefined' && errors.lastname ? errors.lastname.msg : null) %> </span> 
+                </div>
 
                 <div>
-                    <input type="email" placeholder="Email" class="email" name="email">
-<!--                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.username)?errores.username.msg : "El campo email es requerido" %> </span>
- -->                </div>
+                    <input type="email" placeholder="Email" class="email" name="email" value="<%= (typeof old != 'undefined' && old.email ? old.email : null) %>">
+                    <span class="text-danger"><%= (typeof errors != 'undefined' && errors.email ? errors.email.msg : null) %> </span>
+      
+                </div>
 
                 <div>
                     <input type="password" placeholder="Contraseña" class="password" name="password">
-<!--                     <span class="text-danger"><%= (typeof errores != 'undefined' && errores.pass)?errores.pass.msg : "El campo contraseña es requerido y debe tener entre 6 y 12 caracteres" %> </span>
- -->                </div>
+                    <span class="text-danger"><%= (typeof errors != 'undefined' && errors.password ? errors.password.msg : null) %> </span>
+                  </div>
 
                 <div>
-                  <p>Imagen de perfil<input type="file" placeholder="selecciona tu foto de perfil" name="avatar"></p> 
+                  <p>Imagen de perfil<input type="file" placeholder="selecciona tu foto de perfil" name="avatar" value="<%= (typeof old != 'undefined' && old.email ? old.email : null) %>">
+                    <span class="text-danger"><%= (typeof errors != 'undefined' && errors.email ? errors.email.msg : null) %> </span>
                 </div>
                     
                     <input type="submit" class="submit" value="REGISTRARME">
@@ -53,14 +56,14 @@
                       <h1 class="noLogin">¿Estás registrado? <a href="/iniciar"></a>Inicia sesión</h1>
                   
                 </div>
-               <div class="login">
+               <!-- <div class="login">
                   <h2 class="iniciar">Registrar cuenta con</h2>
                   <div class="login-items">
                     <button class="fb"><i class="fab fa-facebook-f"></i> Registrar con Facebook</button>
                     <button class="tw"><i class="fab fa-twitter"></i> Registrar con Twitter</button>
                     <button class="correo"><i class="fab fa-google-plus-g"></i> Registrar con Correo</button> 
                   </div> 
-                </div>
+                </div> -->
               </div>
             </div>
           </div>

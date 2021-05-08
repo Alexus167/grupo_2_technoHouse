@@ -80,7 +80,6 @@ module.exports = {
     let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
-      var perfil = req.files[0].filename;
 
       const { name, lastname, email, password } = req.body;
       let passHash = bcrypt.hashSync(password.trim(), 12);
@@ -90,7 +89,7 @@ module.exports = {
         lastname: lastname.trim(),
         email: email.trim(),
         password: passHash,
-        avatar: perfil,
+        avatar: req.files[0] ? req.files[0].filename : 'avatar-default.png',
         rol: 0,
       })
         .then(() => res.redirect('/users/iniciar'))

@@ -26,7 +26,7 @@
   display: none;
 }
 .stars label{
- /*  float: right; */
+  float: right;
   font-size: 25px;
   color: lightgrey;
   margin: 0 3px;
@@ -49,12 +49,12 @@
   text-shadow: 1px 1px goldenrod;
 }
 .stars .result:before{
-/*   position: absolute; */
+  position: absolute;
   content: "";
-  /* width: 100%; */
- /*  left: 50%; */
+ /*  /* width: 100%; */
+ /*  left: 50%; */ */
   transform: translateX(-47%);
- /*  bottom: -30px; */
+  bottom: -30px;
   font-size: 20px;
   font-weight: 500;
   color: gold;
