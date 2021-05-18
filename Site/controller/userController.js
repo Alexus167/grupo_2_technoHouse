@@ -13,12 +13,13 @@ module.exports = {
     })
   },
   processIniciar: (req, res) => {
-    let errores = validationResult(req);
+    console.log(validationResult)
+    let errors = validationResult(req);
     const { email, password, recordar } = req.body;
 
-    if (!errores.isEmpty()) {
+    if (!errors.isEmpty()) {
       return res.render('iniciar', {
-        errores: errores.mapped(),
+        errors: errors.mapped(),
         data: req.body
       })
     } else {
@@ -77,9 +78,15 @@ module.exports = {
     })
   },
   processRegistro: (req, res) => {
+    console.log(validationResult)
     let errors = validationResult(req);
 
     if (!errors.isEmpty()) {
+      return res.render('registro', {
+        errors: errors.mapped(),
+        data: req.body
+      })
+    } else {
 
       const { name, lastname, email, password } = req.body;
       let passHash = bcrypt.hashSync(password.trim(), 12);
@@ -94,11 +101,11 @@ module.exports = {
       })
         .then(() => res.redirect('/users/iniciar'))
         .catch(error => res.send(error))
-    } else {
+    /* } else {
       return res.render('registro', {
         errors: errors.mapped(),
         old: req.body
-      })
+      }) */
     }
   },
   perfil: (req, res) => {
