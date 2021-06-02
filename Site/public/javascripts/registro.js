@@ -1,7 +1,6 @@
 const qs = (e)=> document.querySelector(e)
 
 window.addEventListener('load',()=>{
-    console.log('Javascript está vinculado correctamente');
 
     let formulario = qs('form.form-reg')
     let email = formulario.elements[0];
@@ -9,8 +8,6 @@ window.addEventListener('load',()=>{
     let lastname = formulario.elements[2];
     let password = formulario.elements[3];
     let bases = formulario.elements[4];
-
-    /* console.log(formulario); */
 
     let regExEmail =  /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]:+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/
     let regExPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/

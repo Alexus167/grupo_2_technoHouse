@@ -22,7 +22,9 @@ module.exports = {
     })
     Promise.all([visitados, enOferta])
       .then(([visitados, enOferta]) => {
+        !req.session.cart ? req.session.cart = [] : null
         return res.render('home', {
+          title: "TechnoHouse",
           enOferta,
           visitados,
         });
@@ -50,7 +52,9 @@ module.exports = {
       })
       Promise.all([buscar, resultado])
       .then(([buscar, resultado]) => {
+        !req.session.cart ? req.session.cart = [] : null
         return res.render('home', {
+          title: "Busqueda",
           buscar,
           resultado,
         });
@@ -76,24 +80,24 @@ module.exports = {
   },
   shipping: (req, res) => {
     res.render('shipping', {
-      title: "envio"
+      title: "Envío"
     })
   },
   productDetails: (req, res) => {
     res.render('productDetails', {
-      title: "Informacion del producto"
+      title: "Información del producto"
     })
   },
 
   productAdd: (req, res) => {
     res.render('productAdd', {
-      title: 'Administracion',
+      title: 'Administración',
     })
   },
 
   formularioPago: (req, res) => {
     res.render('formularioPago', {
-      title: 'Formulario',
+      title: 'Formas de pago',
     })
   },
 

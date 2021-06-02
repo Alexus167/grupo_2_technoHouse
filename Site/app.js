@@ -13,6 +13,7 @@ const usersRouter = require('./routes/usersRouter');
 const productRouter = require('./routes/productRouter');
 const categoryRouter = require('./routes/categoryRouter');
 const cardRouter = require('./routes/cardRouter');
+const cartRouter = require('./routes/cartRouter');
 /* const adminRouter = require('./routes/adminRouter'); */
 
 
@@ -32,7 +33,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-app.use(session({secret : "TechnoHouse it's alive!"}));
+app.use(session({secret : "TechnoHouse it's alive!",
+resave: false,
+saveUninitialized: true}));
 
 app.use(cookieCheck);
 app.use(checkLocals);
@@ -45,6 +48,7 @@ app.use('/users', usersRouter);
 app.use('/products', productRouter);
 app.use('/categories', categoryRouter);
 app.use('/cards', cardRouter);
+app.use('/cart', cartRouter);
 /* app.use('/admin', adminRouter); */
 
 

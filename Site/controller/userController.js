@@ -9,7 +9,7 @@ module.exports = {
 
   iniciar: (req, res) => {
     res.render('iniciar', {
-      title: 'iniciar',
+      title: 'iniciar sesión',
     })
   },
   processIniciar: (req, res) => {
@@ -74,7 +74,7 @@ module.exports = {
 
   registro: (req, res) => {
     res.render('registro', {
-      title: 'registro'
+      title: 'Registro'
     })
   },
   processRegistro: (req, res) => {
@@ -116,6 +116,7 @@ module.exports = {
     })
       .then(user => {
         res.render('perfil', {
+          title: "Perfil",
           user: user
         })
       })
@@ -129,6 +130,7 @@ module.exports = {
     Promise.all([user, cards, adress])
       .then(user => {
         res.render('perfil', {
+          title: "Configuración de datos",
           user
         });
       })
